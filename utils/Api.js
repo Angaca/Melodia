@@ -1,6 +1,7 @@
 import { SPOTIFY_SECRET, SPOTIFY_CLIENTID } from "@env";
 import axios from "axios";
 import qs from "qs";
+import { useState, useEffect } from "react";
 
 export const getSpotifyToken = async () => {
   if (!SPOTIFY_CLIENTID || !SPOTIFY_SECRET)
@@ -20,4 +21,35 @@ export const getSpotifyToken = async () => {
     },
   });
   return response.data.access_token;
+};
+
+export const useSpotify = () => {
+  const [accessToken, setAccessToken] = useState();
+
+  useEffect(() => {
+    if (!accessToken)
+      getSpotifyToken()
+        .then((access_token) => {
+          console.log(
+            `SUCCESS: recieved access_token for spotify API\n ${access_token}`
+          );
+          setAccessToken(access_token);
+        })
+        .catch((err) => console.log(err));
+  }, []);
+
+  async function getTracksByArtist(artist) {
+    if (accessToken) {
+      return axios({
+        method: "get",
+        url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+        headers: {
+          "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    }
+  }
+
+  return { accessToken, getTracksByArtist };
 };
