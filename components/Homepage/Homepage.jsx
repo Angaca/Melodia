@@ -1,10 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
-const Homepage = () => {
+const Homepage = ({ navigation }) => {
   return (
     <View style={style.container}>
       <Text style={style.title}>Melodia!</Text>
+      <Button
+        onPress={() => navigation.navigate("Question")}
+        title="Learn More"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
     </View>
   );
 };
@@ -16,8 +22,8 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: "3rem",
-    marginTop: "1rem",
+    fontSize: 30,
+    marginTop: 10,
   },
 });
 
