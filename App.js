@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Homepage from "./components/Homepage/Homepage";
 import Question from "./components/Question/Question";
+import { Button } from "react-native";
 
 const Stack = createStackNavigator();
 

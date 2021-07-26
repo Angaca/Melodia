@@ -1,17 +1,15 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import AppStyle from "../../style/App.style";
+import StartButton from "./StartButton";
+import Username from "./Username";
 
 const Homepage = ({ navigation }) => {
   return (
     <View style={AppStyle.container}>
       <Text style={style.title}>Melodia!</Text>
-      <Button
-        onPress={() => navigation.navigate("Question")}
-        title="Learn More"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-      />
+      <Username />
+      <StartButton navigation={navigation} />
     </View>
   );
 };
