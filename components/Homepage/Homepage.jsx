@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import AppStyle from "../../style/App.style";
 
 const Homepage = ({ navigation }) => {
   return (
-    <View style={style.container}>
+    <View style={AppStyle.container}>
       <Text style={style.title}>Melodia!</Text>
       <Button
         onPress={() => navigation.navigate("Question")}
@@ -16,11 +17,6 @@ const Homepage = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-  },
   title: {
     fontSize: 30,
     marginTop: 10,
