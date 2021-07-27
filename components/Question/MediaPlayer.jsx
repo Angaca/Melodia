@@ -26,7 +26,7 @@ export default function MediaPlayer() {
         const sound = new Audio.Sound();
         try {
           await sound.loadAsync(song.preview_url);
-          await sound.setVolumeAsync(0.4)
+          await sound.setVolumeAsync(0.25)
           await sound.playAsync();
           // Your sound is playing!
         
@@ -43,7 +43,6 @@ export default function MediaPlayer() {
 
   return (
     <View style={AppStyle.container}>
-      <Text>Hi, Playing song here!</Text>
       <Button
         title="Play Song"
         onPress={playSong}
