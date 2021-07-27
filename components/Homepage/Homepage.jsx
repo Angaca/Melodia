@@ -1,12 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import AppStyle from '../../style/App.style';
-import StartButton from './StartButton';
-import Username from './Username';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import AppStyle from "../../style/App.style";
+import StartButton from "./StartButton";
+import Username from "./Username";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+} from "react-native-responsive-screen";
 
 const Homepage = ({ navigation }) => {
   return (
@@ -21,19 +21,19 @@ const Homepage = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center' },
+  container: { flex: 1, justifyContent: "center" },
   textWrapper: {
-    height: hp('10%'), // 70% of height device screen
-    width: wp('100%'), // 80% of width device screen
-    marginTop: hp('40%'),
+    height: hp("10%"), // 70% of height device screen
+    width: wp("100%"), // 80% of width device screen
+    marginTop: hp("40%"),
   },
   title: {
-    fontSize: hp('5%'), // End result looks like the provided UI mockup
-    textAlign: 'center',
+    fontSize: hp("5%"), // End result looks like the provided UI mockup
+    textAlign: "center",
   },
   btn: {
-    height: hp('10%'), // 70% of height device screen
-    width: wp('30%'), // 80% of width device screen
+    height: hp("10%"), // 70% of height device screen
+    width: wp("30%"), // 80% of width device screen
   },
 });
 
