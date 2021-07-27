@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   ImageBackground,
   StyleSheet,
@@ -8,12 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import StartButton from "./StartButton";
-
-import { StyleSheet, Text, View } from "react-native";
-import AppStyle from "../../style/App.style";
-import StartButton from "./StartButton";
-import Username from "./Username";
-
+import MusicStaff from "./../../style/imgs/staff.svg";
+import BackgroundImage from "./../../style/imgs/staff.svg";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -27,9 +22,11 @@ const Homepage = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.welcomeContainer}>
-          <Text style={style.title}>
+          <MusicStaff height={"50%"} width={"100%"} />
+          {/*   <Text style={style.title}>
             melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
-          </Text>
+          </Text> */}
+
           <TouchableOpacity
             navigation={navigation}
             style={style.triangle}
@@ -42,7 +39,6 @@ const Homepage = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
-
   container: {
     flex: 1,
     flexDirection: "column",
@@ -53,7 +49,7 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    marginTop: "80%",
+    marginTop: "50%",
     height: hp("100%"),
     width: wp("100%"),
   },
@@ -65,13 +61,11 @@ const style = StyleSheet.create({
     padding: 10,
     borderRadius: 100,
     backgroundColor: "orange",
-
   },
   title: {
     fontSize: hp("8%"),
     textAlign: "center",
     backgroundColor: "transparent",
-    paddingBottom: 50,
   },
   musicNote: {
     fontSize: hp("11%"),
