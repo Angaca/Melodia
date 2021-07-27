@@ -20,12 +20,6 @@ const SongProgress = () => {
     }
   }, [timer]);
 
-  useEffect(() => {
-    if (timer <= 0) {
-      setTimer("0");
-    }
-  }, [timer]);
-
   return (
     <View style={AppStyle.container}>
       <Text>Song Progress Bar Here</Text>
