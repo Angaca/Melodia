@@ -6,23 +6,19 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { useState } from "react";
 
 const SongProgress = () => {
-  const [duration, setDuration] = useState(10000);
+  const [duration, setDuration] = useState(5000);
   const [progress, setProgress] = useState(100);
   const [timer, setTimer] = useState(duration / 1000);
 
   useEffect(() => {
-    var x = setInterval(function () {
-      setTimer((currTime) => {
-        console.log("tick");
-        if (isNaN(currTime)) {
-          // If the count down is finished, write some text
-          clearInterval(x);
-          return currTime;
-        }
-        return (currTime - 0.1).toFixed(1);
-      });
-    }, 100);
-  }, [progress]);
+    if (timer && timer > 0) {
+      setTimeout(() => {
+        setTimer((currTimer) => {
+          return (currTimer - 0.1).toFixed(1);
+        });
+      }, 100);
+    }
+  }, [timer]);
 
   useEffect(() => {
     if (timer <= 0) {
