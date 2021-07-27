@@ -4,6 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Homepage from "./components/Homepage/Homepage";
 import Question from "./components/Question/Question";
+import Results from "./components/Results/Results";
+
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -19,6 +22,11 @@ export default function App() {
         <Stack.Screen
           name="Question"
           component={Question}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Results"
+          component={Results}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

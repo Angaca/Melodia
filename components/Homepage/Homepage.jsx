@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   ImageBackground,
   StyleSheet,
@@ -7,6 +8,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import StartButton from "./StartButton";
+
+import { StyleSheet, Text, View } from "react-native";
+import AppStyle from "../../style/App.style";
+import StartButton from "./StartButton";
+import Username from "./Username";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -35,6 +42,7 @@ const Homepage = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
+
   container: {
     flex: 1,
     flexDirection: "column",
@@ -57,6 +65,7 @@ const style = StyleSheet.create({
     padding: 10,
     borderRadius: 100,
     backgroundColor: "orange",
+
   },
   title: {
     fontSize: hp("8%"),
