@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Question from "./components/Question/Question";
 import Results from "./components/Results/Results";
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Stack.Screen
           name="Homepage"
           component={Homepage}
+          style={{ backgroundColor: "transparent" }}
           options={{ headerShown: false }}
         />
         <Stack.Screen

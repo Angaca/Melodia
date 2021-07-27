@@ -3,8 +3,12 @@ import { StyleSheet } from "react-native";
 const AppStyle = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
+  },
+  backgroundContainer: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
   },
   textInput: {
     height: 40,

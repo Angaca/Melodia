@@ -1,8 +1,19 @@
 import React from "react";
+
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import StartButton from "./StartButton";
+
 import { StyleSheet, Text, View } from "react-native";
 import AppStyle from "../../style/App.style";
 import StartButton from "./StartButton";
 import Username from "./Username";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -10,38 +21,74 @@ import {
 
 const Homepage = ({ navigation }) => {
   return (
-    <View style={AppStyle.container}>
-      <View style={style.textWrapper}>
-        <Text style={style.title}>Melodia!</Text>
-      </View>
-      {/* <Username /> */}
-      <StartButton style={style.btn} navigation={navigation} />
+    <View style={style.container}>
+      <ImageBackground
+        source={require("./../../style/imgs/WinterSunburst.png")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <View style={style.welcomeContainer}>
+          <Text style={style.title}>
+            melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
+          </Text>
+          <TouchableOpacity
+            navigation={navigation}
+            style={style.triangle}
+          ></TouchableOpacity>
+          <StartButton style={style.triangle} navigation={navigation} />
+        </View>
+      </ImageBackground>
     </View>
   );
 };
 
 const style = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center" },
-  textWrapper: {
-    height: hp("10%"), // 70% of height device screen
-    width: wp("100%"), // 80% of width device screen
-    marginTop: hp("40%"),
+
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+  welcomeContainer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    marginTop: "80%",
+    height: hp("100%"),
+    width: wp("100%"),
+  },
+  roundButton1: {
+    width: 100,
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: "orange",
+
   },
   title: {
-    fontSize: hp("5%"), // End result looks like the provided UI mockup
+    fontSize: hp("8%"),
     textAlign: "center",
+    backgroundColor: "transparent",
+    paddingBottom: 50,
   },
-  btn: {
-    height: hp("10%"), // 70% of height device screen
-    width: wp("30%"), // 80% of width device screen
+  musicNote: {
+    fontSize: hp("11%"),
+  },
+  triangle: {
+    marginLeft: hp("25%"),
+    borderTopWidth: 60,
+    borderRightWidth: 0,
+    borderBottomWidth: 60,
+    borderLeftWidth: 60,
+    borderTopColor: "transparent",
+    borderRightColor: "transparent",
+    borderBottomColor: "transparent",
+    borderLeftColor: "goldenrod",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
-
-/* const style = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    marginTop: 10,
-  },
-}); */
 
 export default Homepage;
