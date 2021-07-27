@@ -9,25 +9,25 @@ const SongProgress = () => {
   const [duration, setDuration] = useState(5000);
   const [progress, setProgress] = useState(100);
   const [timer, setTimer] = useState();
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (timer && timer > 0) {
-      setIsPlaying(true)
+      setIsPlaying(true);
       setTimeout(() => {
         setTimer((currTimer) => {
           return (currTimer - 0.1).toFixed(1);
         });
       }, 100);
-    }else{
-      setIsPlaying(false)
+    } else {
+      setIsPlaying(false);
     }
   }, [timer]);
 
   return (
     <View style={AppStyle.container}>
       <Text>Song Progress Bar Here</Text>
-      {isPlaying && (
+      {isPlaying ? (
         <AnimatedCircularProgress
           size={120}
           width={15}
@@ -40,11 +40,12 @@ const SongProgress = () => {
             return <Text>{timer}S</Text>;
           }}
         </AnimatedCircularProgress>
+      ) : (
+        <MediaPlayer
+          resetTimer={() => setTimer(duration / 1000)}
+          songDuration={duration}
+        />
       )}
-      <MediaPlayer
-        resetTimer={() => setTimer(duration / 1000)}
-        songDuration={duration}
-      />
     </View>
   );
 };
