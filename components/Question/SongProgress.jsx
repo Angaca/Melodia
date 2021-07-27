@@ -7,7 +7,7 @@ const SongProgress = () => {
   return (
     <View style={AppStyle.container}>
       <Text>Song Progress Bar Here</Text>
-      <MediaPlayer />
+      <MediaPlayer songDuration={5000}/>
     </View>
   );
 };
