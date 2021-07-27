@@ -1,11 +1,16 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import StartButton from "./StartButton";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Staff from "../../style/imgs/Staff";
 
 const Homepage = ({ navigation }) => {
   return (
@@ -15,9 +20,14 @@ const Homepage = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.welcomeContainer}>
-          <Text style={style.title}>Melodia</Text>
-          <View style={style.triangle}></View>
-          <StartButton style={style.btn} navigation={navigation} />
+          <Text style={style.title}>
+            melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
+          </Text>
+          <TouchableOpacity
+            navigation={navigation}
+            style={style.triangle}
+          ></TouchableOpacity>
+          <StartButton style={style.triangle} navigation={navigation} />
         </View>
       </ImageBackground>
     </View>
@@ -39,19 +49,26 @@ const style = StyleSheet.create({
     height: hp("100%"),
     width: wp("100%"),
   },
+  roundButton1: {
+    width: 100,
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: "orange",
+  },
   title: {
     fontSize: hp("8%"),
     textAlign: "center",
     backgroundColor: "transparent",
+    paddingBottom: 50,
   },
-
-  btn: {
-    height: hp("10%"),
-    width: wp("30%"),
-    backgroundColor: "transparent",
+  musicNote: {
+    fontSize: hp("11%"),
   },
-
   triangle: {
+    marginLeft: hp("25%"),
     borderTopWidth: 60,
     borderRightWidth: 0,
     borderBottomWidth: 60,
@@ -60,6 +77,8 @@ const style = StyleSheet.create({
     borderRightColor: "transparent",
     borderBottomColor: "transparent",
     borderLeftColor: "goldenrod",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
