@@ -26,7 +26,6 @@ const SongProgress = () => {
 
   return (
     <View style={AppStyle.container}>
-      <Text>Song Progress Bar Here</Text>
       {isPlaying ? (
         <AnimatedCircularProgress
           size={120}
