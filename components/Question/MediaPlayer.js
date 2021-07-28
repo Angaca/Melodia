@@ -7,9 +7,32 @@ import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, resetTimer } = props;
+  const { songDuration = 10000, resetTimer, isPlaying, setIsPlaying } = props;
   const [song, setSong] = useState();
-  const { getTracksByArtist, getAudioFeaturesById, accessToken } = useSpotify();
+  const [sound] = useState(new Audio.Sound())
+  const { getTracksByArtist, accessToken } = useSpotify();
+
+  async function loadSong() {
+    if (!song || sound._loaded) return;
+    try {
+      await sound.loadAsync({ uri: song.preview_url });
+      await sound.setVolumeAsync(0.25);
+    } catch (error) {
+      // An error occurred!
+      console.error(error);
+    }
+  }
+
+  async function unloadSong() {
+    await sound.unloadAsync();
+  }
+
+  useEffect(() => {
+    loadSong();
+    if (!isPlaying) {
+      unloadSong();
+    }
+  }, [isPlaying]);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,18 +46,17 @@ export default function MediaPlayer(props) {
 
   async function playSong() {
     if (song && song.preview_url) {
-      const sound = new Audio.Sound();
       try {
-        await sound.loadAsync(song.preview_url);
-        await sound.setVolumeAsync(0.25);
-        await sound.playAsync();
+        await loadSong();
+        setIsPlaying(true);
+        sound.playAsync();
         // Your sound is playing!
-        resetTimer()
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object
         setTimeout(() => {
           sound.unloadAsync();
+          setIsPlaying(false);
         }, songDuration);
       } catch (error) {
         // An error occurred!
@@ -45,11 +67,13 @@ export default function MediaPlayer(props) {
 
   return (
     <View style={AppStyle.container}>
-      <Button
-        title="Play Song"
-        onPress={playSong}
-        accessibilityLabel="Play Song!"
-      />
+      {!isPlaying && (
+        <Button
+          title="Play Song"
+          onPress={playSong}
+          accessibilityLabel="Play Song!"
+        />
+      )}
     </View>
   );
 }

@@ -10,14 +10,14 @@ import {
 } from "react-native-responsive-screen";
 
 const Question = ({ navigation }) => {
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(1);
 
   return (
     <View style={style.container}>
       <Text>Melodia</Text>
       <RoundProgress round={round} />
-      <SongProgress />
       <Answers style={style.answers} />
+      <SongProgress round={round}/>
       {round < 10 ? <NextButton setRound={setRound} /> : null}
       {round === 10 ? (
         <Button
