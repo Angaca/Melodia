@@ -25,7 +25,6 @@ export default function MediaPlayer(props) {
     if (song && song.preview_url) {
       const sound = new Audio.Sound();
       try {
-        console.log("here")
         await sound.loadAsync({uri:song.preview_url});
         await sound.setVolumeAsync(0.25);
         await sound.playAsync();
