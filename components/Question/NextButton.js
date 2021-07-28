@@ -7,7 +7,10 @@ import {
 
 const NextButton = ({ setRound }) => {
   const nextRound = () => {
-    setRound((currentValue) => currentValue + 1);
+    setRound((currentValue) => {
+      if (currentValue >= 10) return currentValue;
+      return currentValue + 1;
+    });
   };
 
   return (

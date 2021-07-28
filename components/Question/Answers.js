@@ -5,23 +5,26 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { shuffleArray } from "../../utils/Array";
 
-const Answers = () => {
+const Answers = (props) => {
+  const { songs, round } = props;
+
+  if (!round) return null;
+
+  const answers = shuffleArray([
+    songs[round - 1].name,
+    ...songs[round - 1].answers,
+  ]);
+
   return (
     <View style={style.container}>
       <View style={style.answers}>
-        <TouchableOpacity style={style.button}>
-          <Text style={style.answerOption}> {"Answer 1"} </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={style.button}>
-          <Text style={style.answerOption}> {"Answer 2"} </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={style.button}>
-          <Text style={style.answerOption}> {"Answer 3"} </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={style.button}>
-          <Text style={style.answerOption}> {"Answer 4"} </Text>
-        </TouchableOpacity>
+        {answers.map((answer, index) => (
+          <TouchableOpacity style={style.button} key={`answer${index}`}>
+            <Text style={style.answerOption}> {answer} </Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </View>
   );

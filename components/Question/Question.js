@@ -9,26 +9,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { useSpotify } from "../../utils/Api";
-import { useEffect } from "react";
 import ResultButton from "./ResultButton";
+import { songs } from "../../utils/exampleQuestions";
 
 const Question = ({ navigation }) => {
-  const { getTracksByArtist, accessToken } = useSpotify();
-  const [songs, setSongs] = useState([]);
   const [round, setRound] = useState(1);
-
-  useEffect(() => {
-    let isMounted = true;
-    getTracksByArtist("lofi").then((response) => {
-      if (isMounted && response) {
-        setSongs(response.data.tracks.items);
-      }
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, [accessToken]);
 
   return (
     <View style={style.container}>
@@ -39,10 +24,10 @@ const Question = ({ navigation }) => {
         <View style={style.top}>
           <AppTitle />
           <RoundProgress round={round} />
-          <SongProgress songs={songs} />
+          <SongProgress songs={songs} round={round} />
         </View>
         <View style={style.bottom}>
-          <Answers />
+          <Answers songs={songs} round={round} style={style.answers} />
           {round < 10 ? (
             <NextButton setRound={setRound} />
           ) : (
