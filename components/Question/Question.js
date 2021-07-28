@@ -39,7 +39,7 @@ const Question = ({ navigation }) => {
         <View style={style.top}>
           <AppTitle />
           <RoundProgress round={round} />
-          <SongProgress />
+          <SongProgress songs={songs} />
         </View>
         <View style={style.bottom}>
           <Answers />
