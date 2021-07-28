@@ -31,7 +31,7 @@ const Homepage = ({ navigation }) => {
             onPress={() => navigation.navigate("Question")}
             style={style.triangle}
           ></TouchableOpacity>
-          <StartButton style={style.triangle} navigation={navigation} />
+          {/* <StartButton style={style.triangle} navigation={navigation} /> */}
         </View>
       </ImageBackground>
     </View>

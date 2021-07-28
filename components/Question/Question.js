@@ -10,7 +10,7 @@ import {
 } from "react-native-responsive-screen";
 import { useSpotify } from "../../utils/Api";
 import { useEffect } from "react";
-
+import ResultButton from "./ResultButton";
 
 const Question = ({ navigation }) => {
   const { getTracksByArtist, accessToken } = useSpotify();
@@ -35,16 +35,11 @@ const Question = ({ navigation }) => {
       <RoundProgress round={round} />
       <Answers style={style.answers} />
       <SongProgress round={round} songs={songs} />
-      {round < 10 ? <NextButton setRound={setRound} /> : null}
-      {round === 10 ? (
-        <Button
-          onPress={() => {
-            navigation.navigate("Results");
-            setRound(0);
-          }}
-          title="Results"
-        />
-      ) : null}
+      {round < 10 ? (
+        <NextButton setRound={setRound} />
+      ) : (
+        <ResultButton navigation={navigation} setRound={setRound} />
+      )}
     </View>
   );
 };

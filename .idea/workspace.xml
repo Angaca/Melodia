@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb4351ea-ee34-4843-ae7a-abb280d026bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +38,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1974" y="226" width="1200" height="635" key="AVDManager" timestamp="1627297879606">
+    <state x="-2043" y="278" width="1200" height="635" key="AVDManager" timestamp="1627472536204">
       <screen x="-2560" y="-379" width="2560" height="1415" />
     </state>
-    <state x="-1974" y="226" width="1200" height="635" key="AVDManager/0.25.1440.875/-2560.-379.2560.1415@-2560.-379.2560.1415" timestamp="1627297879606" />
+    <state x="-2043" y="278" width="1200" height="635" key="AVDManager/0.25.1440.875/-2560.-379.2560.1415@-2560.-379.2560.1415" timestamp="1627472536204" />
+    <state x="-2682" y="106" key="SettingsEditor" timestamp="1627472649309">
+      <screen x="-2560" y="-379" width="2560" height="1415" />
+    </state>
+    <state x="-2682" y="106" key="SettingsEditor/0.25.1440.875/-2560.-379.2560.1415@-2560.-379.2560.1415" timestamp="1627472649309" />
   </component>
 </project>
