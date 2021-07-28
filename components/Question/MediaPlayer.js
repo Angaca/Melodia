@@ -1,15 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Button } from "react-native";
 import AppStyle from "../../style/App.style";
 import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, resetTimer, isPlaying, setIsPlaying } = props;
+  const { songDuration = 10000, isPlaying, setIsPlaying, round } = props;
   const [song, setSong] = useState();
-  const [sound] = useState(new Audio.Sound())
+  const [sound] = useState(new Audio.Sound());
   const { getTracksByArtist, accessToken } = useSpotify();
 
   async function loadSong() {
@@ -24,38 +24,40 @@ export default function MediaPlayer(props) {
   }
 
   async function unloadSong() {
-    await sound.unloadAsync();
+    if (sound._loaded) {
+      await sound.unloadAsync();
+    }
   }
 
   useEffect(() => {
-    loadSong();
     if (!isPlaying) {
       unloadSong();
     }
   }, [isPlaying]);
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await getTracksByArtist("aries");
-      if (response) {
+    let isMounted = true;
+    getTracksByArtist("aries").then((response) => {
+      if (isMounted && response) {
         setSong(response.data.tracks.items[0]);
       }
-    }
-    if (!song) fetchData();
+    });
+    return () => {
+      isMounted = false;
+    };
   }, [accessToken]);
 
   async function playSong() {
     if (song && song.preview_url) {
+      setIsPlaying(true);
       try {
         await loadSong();
-        setIsPlaying(true);
-        sound.playAsync();
+        await sound.playAsync();
         // Your sound is playing!
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object
         setTimeout(() => {
-          sound.unloadAsync();
           setIsPlaying(false);
         }, songDuration);
       } catch (error) {

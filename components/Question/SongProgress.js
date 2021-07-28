@@ -11,9 +11,9 @@ const SongProgress = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    setIsPlaying(false)
-  }, [round])
-  
+    setIsPlaying(false);
+  }, [round]);
+
   return (
     <View style={AppStyle.container}>
       {isPlaying && (
@@ -33,6 +33,7 @@ const SongProgress = (props) => {
         </AnimatedCircularProgress>
       )}
       <MediaPlayer
+        round={round}
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
         songDuration={duration}
