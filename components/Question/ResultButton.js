@@ -11,7 +11,7 @@ const ResultButton = ({ setRound, navigation }) => {
       <Button
         onPress={() => {
           navigation.navigate("Results");
-          setRound(0);
+          setRound(1);
         }}
         title="Results"
       />
