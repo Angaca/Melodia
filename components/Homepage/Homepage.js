@@ -30,10 +30,7 @@ const Homepage = ({ navigation }) => {
             onPress={() => navigation.navigate("Question")}
             style={style.triangle}
           ></TouchableOpacity>
-<<<<<<< HEAD
-=======
           {/* <StartButton style={style.triangle} navigation={navigation} /> */}
->>>>>>> f2401085d213045182150a655021f308bae9359c
         </View>
       </ImageBackground>
     </View>
