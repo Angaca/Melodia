@@ -5,14 +5,16 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-const NextButton = ({ setRound }) => {
-  const nextRound = () => {
-    setRound((currentValue) => currentValue + 1);
-  };
-
+const ResultButton = ({ setRound, navigation }) => {
   return (
     <View style={style.container}>
-      <Button title="Next" onPress={() => nextRound()} />
+      <Button
+        onPress={() => {
+          navigation.navigate("Results");
+          setRound(0);
+        }}
+        title="Results"
+      />
     </View>
   );
 };
@@ -25,4 +27,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default NextButton;
+export default ResultButton;

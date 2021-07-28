@@ -31,9 +31,6 @@ export const useSpotify = () => {
     if (!accessToken) {
       getSpotifyToken()
         .then((access_token) => {
-          console.log(
-            `SUCCESS: recieved access_token for spotify API\n ${access_token}`
-          );
           setAccessToken(access_token);
         })
         .catch((err) => console.log(err));

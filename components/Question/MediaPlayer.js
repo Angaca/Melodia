@@ -1,40 +1,49 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Button } from "react-native";
 import AppStyle from "../../style/App.style";
-import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, resetTimer } = props;
-  const [song, setSong] = useState();
-  const { getTracksByArtist, getAudioFeaturesById, accessToken } = useSpotify();
+  const { songDuration = 10000, isPlaying, setIsPlaying, song } = props;
+  const [sound] = useState(new Audio.Sound());
+
+  async function loadSong() {
+    if (!song || sound._loaded) return;
+    try {
+      await sound.loadAsync({ uri: song.preview_url });
+      await sound.setVolumeAsync(0.25);
+    } catch (error) {
+      // An error occurred!
+      console.error(error);
+    }
+  }
+
+  async function unloadSong() {
+    if (sound._loaded) {
+      await sound.unloadAsync();
+    }
+  }
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await getTracksByArtist("aries");
-      if (response) {
-        setSong(response.data.tracks.items[0]);
-      }
+    if (!isPlaying) {
+      unloadSong();
     }
-    if (!song) fetchData();
-  }, [accessToken]);
+  }, [isPlaying]);
 
   async function playSong() {
     if (song && song.preview_url) {
-      const sound = new Audio.Sound();
+      setIsPlaying(true);
       try {
-        await sound.loadAsync(song.preview_url);
-        await sound.setVolumeAsync(0.25);
+        await loadSong();
         await sound.playAsync();
         // Your sound is playing!
-        resetTimer()
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object
         setTimeout(() => {
-          sound.unloadAsync();
+          setIsPlaying(false);
         }, songDuration);
       } catch (error) {
         // An error occurred!
@@ -45,11 +54,13 @@ export default function MediaPlayer(props) {
 
   return (
     <View style={AppStyle.container}>
-      <Button
-        title="Play Song"
-        onPress={playSong}
-        accessibilityLabel="Play Song!"
-      />
+      {!isPlaying && (
+        <Button
+          title="Play Song"
+          onPress={playSong}
+          accessibilityLabel="Play Song!"
+        />
+      )}
     </View>
   );
 }

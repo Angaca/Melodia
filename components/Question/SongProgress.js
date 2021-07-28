@@ -5,46 +5,40 @@ import MediaPlayer from "./MediaPlayer";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { useState } from "react";
 
-const SongProgress = () => {
-  const [duration, setDuration] = useState(5000);
-  const [progress, setProgress] = useState(100);
-  const [timer, setTimer] = useState();
+const SongProgress = (props) => {
+  const { round, songs } = props;
+  const [duration] = useState(5000);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (timer && timer > 0) {
-      setIsPlaying(true);
-      setTimeout(() => {
-        setTimer((currTimer) => {
-          return (currTimer - 0.1).toFixed(1);
-        });
-      }, 100);
-    } else {
-      setIsPlaying(false);
-    }
-  }, [timer]);
+    setIsPlaying(false);
+  }, [round]);
 
   return (
     <View style={AppStyle.container}>
-      {isPlaying ? (
+      {isPlaying && (
         <AnimatedCircularProgress
           size={120}
           width={15}
-          fill={progress}
+          fill={100}
           tintColor="#00e0ff"
           backgroundColor="#3d5875"
           duration={duration}
         >
           {(fill) => {
-            return <Text>{timer}S</Text>;
+            return (
+              <Text>{((duration / 1000) * (fill / 100)).toFixed(1)}s</Text>
+            );
           }}
         </AnimatedCircularProgress>
-      ) : (
-        <MediaPlayer
-          resetTimer={() => setTimer(duration / 1000)}
-          songDuration={duration}
-        />
       )}
+      <MediaPlayer
+        round={round}
+        setIsPlaying={setIsPlaying}
+        isPlaying={isPlaying}
+        songDuration={duration}
+        song={songs[round]}
+      />
     </View>
   );
 };
