@@ -22,13 +22,13 @@ const Homepage = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.welcomeContainer}>
-          <MusicStaff height={"50%"} width={"100%"} />
+          {/* <MusicStaff height={"50%"} width={"100%"} /> */}
           {/*   <Text style={style.title}>
             melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
           </Text> */}
 
           <TouchableOpacity
-            navigation={navigation}
+            onPress={() => navigation.navigate("Question")}
             style={style.triangle}
           ></TouchableOpacity>
           <StartButton style={style.triangle} navigation={navigation} />

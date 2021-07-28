@@ -15,7 +15,6 @@ export default function MediaPlayer(props) {
     async function fetchData() {
       const response = await getTracksByArtist("aries");
       if (response) {
-        console.log(response.data.tracks);
         setSong(response.data.tracks.items[0]);
       }
     }

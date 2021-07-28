@@ -2,13 +2,14 @@ import { SPOTIFY_SECRET, SPOTIFY_CLIENTID } from "@env";
 import axios from "axios";
 import qs from "qs";
 import { useState, useEffect } from "react";
+import { Base64 } from "./Base64";
 
 export const getSpotifyToken = async () => {
   if (!SPOTIFY_CLIENTID || !SPOTIFY_SECRET)
     return console.error(
       "ERROR: getSpotifyToken() environment variables must be set"
     );
-  const encoded = btoa(`${SPOTIFY_CLIENTID}:${SPOTIFY_SECRET}`);
+  const encoded = Base64.btoa(`${SPOTIFY_CLIENTID}:${SPOTIFY_SECRET}`);
   const response = await axios({
     method: "post",
     url: "https://accounts.spotify.com/api/token",
@@ -27,7 +28,7 @@ export const useSpotify = () => {
   const [accessToken, setAccessToken] = useState();
 
   useEffect(() => {
-    if (!accessToken)
+    if (!accessToken) {
       getSpotifyToken()
         .then((access_token) => {
           console.log(
@@ -36,6 +37,7 @@ export const useSpotify = () => {
           setAccessToken(access_token);
         })
         .catch((err) => console.log(err));
+    }
   }, []);
 
   async function getTracksByArtist(artist) {
