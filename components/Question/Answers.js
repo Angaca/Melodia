@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
 import AppStyle from "../../style/App.style";
 import {
   widthPercentageToDP as wp,
@@ -10,10 +10,18 @@ const Answers = () => {
   return (
     <View style={style.container}>
       <View style={style.answers}>
-        <Button title={"Answer 1"} />
-        <Button title={"Answer 2"} />
-        <Button title={"Answer 3"} />
-        <Button title={"Answer 4"} />
+        <TouchableOpacity style={style.button}>
+          <Text style={style.answerOption}> {"Answer 1"} </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={style.button}>
+          <Text style={style.answerOption}> {"Answer 2"} </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={style.button}>
+          <Text style={style.answerOption}> {"Answer 3"} </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={style.button}>
+          <Text style={style.answerOption}> {"Answer 4"} </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -26,6 +34,13 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 15,
+    backgroundColor: "goldenrod",
+    borderRadius: 10,
+  },
   answers: {
     flex: 1,
     flexDirection: "column",
@@ -33,6 +48,12 @@ const style = StyleSheet.create({
     backgroundColor: "transparent",
     width: wp("90%"),
     marginBottom: hp("3%"),
+  },
+
+  answerOption: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: 16,
   },
 });
 export default Answers;

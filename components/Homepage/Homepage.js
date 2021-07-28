@@ -6,9 +6,10 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import StartButton from "./StartButton";
 import MusicStaff from "./../../style/imgs/staff.svg";
 import BackgroundImage from "./../../style/imgs/staff.svg";
+
+import AppTitle from "../Shared/AppTitle";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -23,9 +24,7 @@ const Homepage = ({ navigation }) => {
       >
         <View style={style.welcomeContainer}>
           <MusicStaff height={"50%"} width={"100%"} />
-          <Text style={style.title}>
-            melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
-          </Text>
+          <AppTitle />
 
           <TouchableOpacity
             onPress={() => navigation.navigate("Question")}
@@ -62,14 +61,7 @@ const style = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: "orange",
   },
-  title: {
-    fontSize: hp("8%"),
-    textAlign: "center",
-    backgroundColor: "transparent",
-  },
-  musicNote: {
-    fontSize: hp("11%"),
-  },
+
   triangle: {
     marginLeft: hp("25%"),
     borderTopWidth: 60,
@@ -79,7 +71,7 @@ const style = StyleSheet.create({
     borderTopColor: "transparent",
     borderRightColor: "transparent",
     borderBottomColor: "transparent",
-    borderLeftColor: "goldenrod",
+    borderLeftColor: "#E0B318",
     justifyContent: "center",
     alignItems: "center",
   },
