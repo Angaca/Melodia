@@ -3,14 +3,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { View, Button } from "react-native";
 import AppStyle from "../../style/App.style";
-import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, isPlaying, setIsPlaying, round } = props;
-  const [song, setSong] = useState();
+  const { songDuration = 10000, isPlaying, setIsPlaying, song } = props;
   const [sound] = useState(new Audio.Sound());
-  const { getTracksByArtist, accessToken } = useSpotify();
 
   async function loadSong() {
     if (!song || sound._loaded) return;
@@ -34,18 +31,6 @@ export default function MediaPlayer(props) {
       unloadSong();
     }
   }, [isPlaying]);
-
-  useEffect(() => {
-    let isMounted = true;
-    getTracksByArtist("aries").then((response) => {
-      if (isMounted && response) {
-        setSong(response.data.tracks.items[0]);
-      }
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, [accessToken]);
 
   async function playSong() {
     if (song && song.preview_url) {
