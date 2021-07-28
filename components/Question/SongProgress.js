@@ -26,7 +26,7 @@ const SongProgress = () => {
 
   return (
     <View style={AppStyle.container}>
-      {isPlaying ? (
+      {isPlaying && (
         <AnimatedCircularProgress
           size={120}
           width={15}
@@ -39,12 +39,12 @@ const SongProgress = () => {
             return <Text>{timer}S</Text>;
           }}
         </AnimatedCircularProgress>
-      ) : (
-        <MediaPlayer
-          resetTimer={() => setTimer(duration / 1000)}
-          songDuration={duration}
-        />
       )}
+      <MediaPlayer
+        isPlaying={isPlaying}
+        resetTimer={() => setTimer(duration / 1000)}
+        songDuration={duration}
+      />
     </View>
   );
 };

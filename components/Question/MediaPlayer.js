@@ -7,7 +7,7 @@ import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, resetTimer } = props;
+  const { songDuration = 10000, resetTimer, isPlaying } = props;
   const [song, setSong] = useState();
   const { getTracksByArtist, getAudioFeaturesById, accessToken } = useSpotify();
 
@@ -25,11 +25,12 @@ export default function MediaPlayer(props) {
     if (song && song.preview_url) {
       const sound = new Audio.Sound();
       try {
-        await sound.loadAsync(song.preview_url);
+        console.log("here")
+        await sound.loadAsync({uri:song.preview_url});
         await sound.setVolumeAsync(0.25);
         await sound.playAsync();
         // Your sound is playing!
-        resetTimer()
+        resetTimer();
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object
@@ -45,11 +46,13 @@ export default function MediaPlayer(props) {
 
   return (
     <View style={AppStyle.container}>
-      <Button
-        title="Play Song"
-        onPress={playSong}
-        accessibilityLabel="Play Song!"
-      />
+      {!isPlaying && (
+        <Button
+          title="Play Song"
+          onPress={playSong}
+          accessibilityLabel="Play Song!"
+        />
+      )}
     </View>
   );
 }
