@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import StartButton from "./StartButton";
-import MusicStaff from "./../../style/imgs/staff.svg";
-import BackgroundImage from "./../../style/imgs/staff.svg";
+import Staff from "../../style/imgs/Staff";
+// import BackgroundImage from "./../../style/imgs/staff";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -22,7 +22,7 @@ const Homepage = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.welcomeContainer}>
-          {/* <MusicStaff height={"50%"} width={"100%"} /> */}
+          <Staff height={"50%"} width={"100%"} />
           {/*   <Text style={style.title}>
             melo<Text style={style.musicNote}>𝅘𝅥</Text>ia
           </Text> */}
