@@ -16,7 +16,7 @@ const Results = ({ navigation }) => {
         <FinalScore />
         <View style={AppStyle.container}>
           <NewGameButton navigation={navigation} />
-          {/*  <HomeButton navigation={navigation} /> */}
+          <HomeButton navigation={navigation} />
         </View>
       </ImageBackground>
     </View>
