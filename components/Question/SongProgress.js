@@ -37,7 +37,7 @@ const SongProgress = (props) => {
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
         songDuration={duration}
-        song={songs[round]}
+        song={songs[round - 1]}
       />
     </View>
   );

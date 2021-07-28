@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Platform,
   TouchableOpacity,
 } from "react-native";
 import MusicStaff from "./../../style/imgs/staff.svg";
@@ -23,7 +24,9 @@ const Homepage = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.welcomeContainer}>
-          <MusicStaff height={"50%"} width={"100%"} />
+          {Platform.OS !== "web" && (
+            <MusicStaff height={"50%"} width={"100%"} />
+          )}
           <AppTitle />
 
           <TouchableOpacity
