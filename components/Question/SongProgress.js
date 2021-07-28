@@ -5,10 +5,15 @@ import MediaPlayer from "./MediaPlayer";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { useState } from "react";
 
-const SongProgress = () => {
+const SongProgress = (props) => {
+  const { round, songs } = props;
   const [duration] = useState(5000);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    setIsPlaying(false)
+  }, [round])
+  
   return (
     <View style={AppStyle.container}>
       {isPlaying && (

@@ -7,13 +7,13 @@ import RoundProgress from "./RoundProgress";
 import SongProgress from "./SongProgress";
 
 const Question = ({ navigation }) => {
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(1);
 
   return (
     <View style={AppStyle.container}>
       <Text>Melodia</Text>
       <RoundProgress round={round} />
-      <SongProgress />
+      <SongProgress round={round}/>
       {round < 10 ? <NextButton setRound={setRound} /> : null}
       <Answers />
       {round === 10 ? (
