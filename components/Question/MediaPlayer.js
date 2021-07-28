@@ -7,9 +7,9 @@ import { useSpotify } from "../../utils/Api";
 import { Audio } from "expo-av";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, resetTimer, isPlaying } = props;
+  const { songDuration = 10000, resetTimer, isPlaying, setIsPlaying } = props;
   const [song, setSong] = useState();
-  const { getTracksByArtist, getAudioFeaturesById, accessToken } = useSpotify();
+  const { getTracksByArtist, accessToken } = useSpotify();
 
   useEffect(() => {
     async function fetchData() {
@@ -27,14 +27,15 @@ export default function MediaPlayer(props) {
       try {
         await sound.loadAsync({uri:song.preview_url});
         await sound.setVolumeAsync(0.25);
+        setIsPlaying(true)
         await sound.playAsync();
         // Your sound is playing!
-        resetTimer();
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object
         setTimeout(() => {
           sound.unloadAsync();
+          setIsPlaying(false)
         }, songDuration);
       } catch (error) {
         // An error occurred!
