@@ -1,17 +1,42 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { View, Button } from "react-native";
+import { View, Button, Text, StyleSheet } from "react-native";
 import AppStyle from "../../style/App.style";
 import { Audio } from "expo-av";
+import { heightPercentageToDP } from "react-native-responsive-screen";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, isPlaying, setIsPlaying, song } = props;
+  const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
+  const [countdown, setCountdown] = useState(3);
   const [sound] = useState(new Audio.Sound());
 
+  useEffect(() => {
+    if (!isPlaying) {
+      unloadSong();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    loadSong();
+    setCountdown(3);
+    setTimeout(() => {
+      playSong();
+    }, 3000);
+  }, [round]);
+
+  useEffect(() => {
+    if(countdown < 0) setCountdown(0)
+    if (countdown > 0)
+      setTimeout(() => {
+        setCountdown((curr) => curr - 1);
+      }, 1000);
+  }, [countdown]);
+
   async function loadSong() {
-    if (!song || sound._loaded) return;
+    if (!song) return;
     try {
+      if (sound._loaded) await sound.unloadAsync();
       await sound.loadAsync({ uri: song.preview_url });
       await sound.setVolumeAsync(0.25);
     } catch (error) {
@@ -25,12 +50,6 @@ export default function MediaPlayer(props) {
       await sound.unloadAsync();
     }
   }
-
-  useEffect(() => {
-    if (!isPlaying) {
-      unloadSong();
-    }
-  }, [isPlaying]);
 
   async function playSong() {
     if (song && song.preview_url) {
@@ -54,7 +73,8 @@ export default function MediaPlayer(props) {
 
   return (
     <View style={AppStyle.container}>
-      {!isPlaying && (
+      {countdown !== 0 && <Text style={style.rankTitle}>{countdown}</Text>}
+      {!isPlaying && !countdown && (
         <Button
           title="Play Song"
           onPress={playSong}
@@ -64,3 +84,11 @@ export default function MediaPlayer(props) {
     </View>
   );
 }
+
+const style = StyleSheet.create({
+  rankTitle: {
+    fontSize: heightPercentageToDP("6%"),
+    color: "#E0B318",
+    fontWeight: 800,
+  }
+})
