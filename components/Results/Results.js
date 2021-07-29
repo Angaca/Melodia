@@ -1,20 +1,26 @@
 import React from "react";
-import { Text, View, ImageBackground } from "react-native";
+import { Text, View, ImageBackground, StyleSheet } from "react-native";
 import AppStyle from "../../style/App.style";
 import FinalScore from "./FinalScore";
 import HomeButton from "./HomeButton";
 import NewGameButton from "./NewGameButton";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const Results = ({ navigation }) => {
   return (
-    <View style={AppStyle.container}>
+    <View style={style.container}>
       <ImageBackground
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={{ width: "100%", height: "100%" }}
       >
-        <Text>Melodia</Text>
-        <FinalScore />
-        <View style={AppStyle.container}>
+        <View style={style.results}>
+          <Text style={style.appTitle}>Melodia</Text>
+          <FinalScore />
+        </View>
+        <View style={style.btns}>
           <NewGameButton navigation={navigation} />
           <HomeButton navigation={navigation} />
         </View>
@@ -22,5 +28,31 @@ const Results = ({ navigation }) => {
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
+
+  appTitle: {
+    height: hp("20%"),
+  },
+  results: {
+    height: hp("50%"),
+    alignItems: "stretch",
+  },
+  btns: {
+    flex: 1,
+    flexDirection: "row",
+    fontSize: hp("6%"),
+    height: hp("30%"),
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "transparent",
+    width: wp("100%"),
+    marginBottom: hp("1%"),
+  },
+});
 
 export default Results;
