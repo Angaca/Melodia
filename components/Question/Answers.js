@@ -35,7 +35,7 @@ const Answers = (props) => {
           <TouchableOpacity
             disabled={clicked}
             style={
-              clicked && userAnswer !== songs[round - 1].name
+              clicked && answer !== songs[round - 1].name
                 ? answerPage.incorrectBtn
                 : answerPage.button
             }

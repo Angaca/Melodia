@@ -43,6 +43,17 @@ const answerPageStyle = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
   },
+
+  defaultBtn: {
+    color: "green",
+    fontWeight: "700",
+    textDecorationLine: "line-through",
+    backgroundColor: "#626174",
+    fontSize: 16,
+    alignItems: "center",
+    padding: 15,
+    borderRadius: 10,
+  },
 });
 
 export default answerPageStyle;
