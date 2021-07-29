@@ -28,12 +28,12 @@ const style = StyleSheet.create({
   rankTitle: {
     fontSize: hp("6%"),
     color: "#E0B318",
-    fontWeight: 800,
+    fontWeight: "700",
   },
   score: {
     fontSize: hp("3%"),
     color: "white",
-    fontWeight: 800,
+    fontWeight: "700",
   },
 });
 
