@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
 import AppStyle from "../../style/App.style";
 import {
@@ -6,9 +6,12 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { shuffleArray } from "../../utils/Array";
+import { ScoreContext } from "../../context/ScoreContext";
 
 const Answers = (props) => {
   const { songs, round } = props;
+  const { setScore } = useContext(ScoreContext);
+  const [userAnswer, setUserAnswer] = useState("");
 
   if (!round) return null;
 
@@ -17,11 +20,21 @@ const Answers = (props) => {
     ...songs[round - 1].answers,
   ]);
 
+  useEffect(() => {
+    if (userAnswer === songs[round - 1].name) {
+      setScore((currentScore) => currentScore + 1);
+    }
+  }, [userAnswer]);
+
   return (
     <View style={style.container}>
       <View style={style.answers}>
         {answers.map((answer, index) => (
-          <TouchableOpacity style={style.button} key={`answer${index}`}>
+          <TouchableOpacity
+            style={style.button}
+            key={`answer${index}`}
+            onPress={() => setUserAnswer(answer)}
+          >
             <Text style={style.answerOption}> {answer} </Text>
           </TouchableOpacity>
         ))}
