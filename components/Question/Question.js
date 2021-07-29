@@ -27,7 +27,7 @@ const Question = ({ navigation }) => {
           <RoundProgress round={round} />
           <SongProgress songs={songs} round={round} />
         </View>
-        <View style={style.bottom}>
+        <View style={style.answers}>
           <Answers
             clicked={clicked}
             setClicked={setClicked}
@@ -35,6 +35,8 @@ const Question = ({ navigation }) => {
             round={round}
             style={style.answers}
           />
+        </View>
+        <View style={style.nextBtn}>
           {round < 10 ? (
             clicked ? (
               <NextButton setClicked={setClicked} setRound={setRound} />
@@ -63,12 +65,15 @@ const style = StyleSheet.create({
     alignItems: "center",
     height: hp("100%"),
   },
-  bottom: {
-    height: hp("50%"),
+  answers: {
+    height: hp("43%"),
   },
 
   top: {
     height: hp("50%"),
+  },
+  nextBtn: {
+    height: hp("7%"),
   },
 });
 
