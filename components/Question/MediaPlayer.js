@@ -48,8 +48,17 @@ export default function MediaPlayer(props) {
     }
   }
 
+  function clearAllTimeouts() {
+    let id = window.setTimeout(function () {}, 0);
+
+    while (id--) {
+      window.clearTimeout(id);
+    }
+  }
+
   async function playSong() {
     if (song && song.preview_url) {
+      clearAllTimeouts()
       setIsPlaying(true);
       try {
         await loadSong();
