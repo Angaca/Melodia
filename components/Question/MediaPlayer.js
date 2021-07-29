@@ -19,9 +19,6 @@ export default function MediaPlayer(props) {
   useEffect(() => {
     loadSong();
     setCountdown(3);
-    setTimeout(() => {
-      playSong();
-    }, 3000);
   }, [round]);
 
   useEffect(() => {
@@ -30,6 +27,7 @@ export default function MediaPlayer(props) {
       setTimeout(() => {
         setCountdown((curr) => curr - 1);
       }, 1000);
+    if (countdown === 0) playSong();
   }, [countdown]);
 
   async function loadSong() {
