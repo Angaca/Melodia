@@ -39,7 +39,7 @@ const Answers = (props) => {
         {answers.map((answer, index) => (
           <TouchableOpacity
             disabled={clicked}
-            style={style.button}
+            style={style.incorrectBtn}
             key={`answer${index}`}
             onPress={() => handleAnswer(answer)}
           >
@@ -78,6 +78,17 @@ const style = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     fontSize: 16,
+  },
+
+  incorrectBtn: {
+    color: "white",
+    fontWeight: "700",
+    textDecoration: "line-through",
+    backgroundColor: "#626174",
+    fontSize: 16,
+    alignItems: "center",
+    padding: 15,
+    borderRadius: 10,
   },
 });
 export default Answers;
