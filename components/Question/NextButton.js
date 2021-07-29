@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-const NextButton = ({ setRound }) => {
+const NextButton = ({ setRound, setClicked }) => {
   const nextRound = () => {
     setRound((currentValue) => {
       if (currentValue >= 10) return currentValue;
@@ -15,7 +15,13 @@ const NextButton = ({ setRound }) => {
 
   return (
     <View style={style.container}>
-      <Button title="Next" onPress={() => nextRound()} />
+      <Button
+        title="Next"
+        onPress={() => {
+          nextRound();
+          setClicked(false);
+        }}
+      />
     </View>
   );
 };

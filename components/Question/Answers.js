@@ -9,7 +9,7 @@ import { shuffleArray } from "../../utils/Array";
 import { ScoreContext } from "../../context/ScoreContext";
 
 const Answers = (props) => {
-  const { songs, round } = props;
+  const { songs, round, clicked, setClicked } = props;
   const { setScore } = useContext(ScoreContext);
   const [userAnswer, setUserAnswer] = useState("");
 
@@ -26,14 +26,20 @@ const Answers = (props) => {
     }
   }, [userAnswer]);
 
+  const handleAnswer = (answer) => {
+    setUserAnswer(answer);
+    setClicked(true);
+  };
+
   return (
     <View style={style.container}>
       <View style={style.answers}>
         {answers.map((answer, index) => (
           <TouchableOpacity
+            disabled={clicked}
             style={style.button}
             key={`answer${index}`}
-            onPress={() => setUserAnswer(answer)}
+            onPress={() => handleAnswer(answer)}
           >
             <Text style={style.answerOption}> {answer} </Text>
           </TouchableOpacity>
