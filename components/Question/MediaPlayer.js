@@ -25,6 +25,7 @@ export default function MediaPlayer(props) {
   }, [round]);
 
   useEffect(() => {
+    if (countdown) setShowPlayButton(false);
     if (countdown < 0) setCountdown(0);
     if (countdown > 0)
       setTimeout(() => {
