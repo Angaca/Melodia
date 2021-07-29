@@ -6,6 +6,7 @@ import {
   View,
   Platform,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import MusicStaff from "./../../style/imgs/staff.svg";
 import BackgroundImage from "./../../style/imgs/staff.svg";
@@ -35,6 +36,10 @@ const Homepage = ({ navigation }) => {
           ></TouchableOpacity>
           {/* <StartButton style={style.triangle} navigation={navigation} /> */}
         </View>
+        <Button
+          onPress={() => navigation.navigate("Results")}
+          title="results"
+        />
       </ImageBackground>
     </View>
   );
