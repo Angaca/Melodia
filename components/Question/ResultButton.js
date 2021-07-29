@@ -5,13 +5,14 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-const ResultButton = ({ setRound, navigation }) => {
+const ResultButton = ({ setClicked, setRound, navigation }) => {
   return (
     <View style={style.container}>
       <Button
         onPress={() => {
           navigation.navigate("Results");
           setRound(1);
+          setClicked(false);
         }}
         title="Results"
       />

@@ -12,13 +12,15 @@ const Answers = (props) => {
   const { songs, round, clicked, setClicked } = props;
   const { setScore } = useContext(ScoreContext);
   const [userAnswer, setUserAnswer] = useState("");
+  const [answers, setAnswers] = useState([]);
 
   if (!round) return null;
 
-  const answers = shuffleArray([
-    songs[round - 1].name,
-    ...songs[round - 1].answers,
-  ]);
+  useEffect(() => {
+    setAnswers(
+      shuffleArray([songs[round - 1].name, ...songs[round - 1].answers])
+    );
+  }, [round]);
 
   useEffect(() => {
     if (userAnswer === songs[round - 1].name) {
