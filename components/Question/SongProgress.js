@@ -10,10 +10,6 @@ const SongProgress = (props) => {
   const [duration] = useState(5000);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    setIsPlaying(false);
-  }, [round]);
-
   return (
     <View style={AppStyle.container}>
       {isPlaying && (

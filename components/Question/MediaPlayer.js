@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { View, Button, Text, StyleSheet } from "react-native";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
@@ -8,15 +7,18 @@ import { heightPercentageToDP } from "react-native-responsive-screen";
 export default function MediaPlayer(props) {
   const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
   const [countdown, setCountdown] = useState(3);
+  const [showPlayButton, setShowPlayButton] = useState(false);
   const [sound] = useState(new Audio.Sound());
 
   useEffect(() => {
     if (!isPlaying) {
       unloadSong();
+      setShowPlayButton(true);
     }
   }, [isPlaying]);
 
   useEffect(() => {
+    setIsPlaying(false);
     loadSong();
     setCountdown(3);
   }, [round]);
@@ -58,7 +60,7 @@ export default function MediaPlayer(props) {
 
   async function playSong() {
     if (song && song.preview_url) {
-      clearAllTimeouts()
+      clearAllTimeouts();
       setIsPlaying(true);
       try {
         await loadSong();
@@ -76,11 +78,10 @@ export default function MediaPlayer(props) {
       }
     }
   }
-
+  if (countdown) return <Text style={style.rankTitle}>{countdown}</Text>;
   return (
     <View style={style.container}>
-      {countdown !== 0 && <Text style={style.rankTitle}>{countdown}</Text>}
-      {!isPlaying && !countdown && (
+      {!showPlayButton && (
         <Button
           title="Play Song"
           onPress={playSong}
