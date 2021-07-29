@@ -39,7 +39,11 @@ const Answers = (props) => {
         {answers.map((answer, index) => (
           <TouchableOpacity
             disabled={clicked}
-            style={style.incorrectBtn}
+            style={
+              clicked && userAnswer !== songs[round - 1].name
+                ? style.incorrectBtn
+                : style.button
+            }
             key={`answer${index}`}
             onPress={() => handleAnswer(answer)}
           >
@@ -83,7 +87,7 @@ const style = StyleSheet.create({
   incorrectBtn: {
     color: "white",
     fontWeight: "700",
-    textDecoration: "line-through",
+    textDecorationLine: "line-through",
     backgroundColor: "#626174",
     fontSize: 16,
     alignItems: "center",
