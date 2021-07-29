@@ -11,14 +11,15 @@ export default function MediaPlayer(props) {
   const [sound] = useState(new Audio.Sound());
 
   useEffect(() => {
+    setShowPlayButton(false);
     if (!isPlaying) {
       unloadSong();
-      setShowPlayButton(true);
     }
   }, [isPlaying]);
 
   useEffect(() => {
     setIsPlaying(false);
+    setShowPlayButton(false);
     loadSong();
     setCountdown(3);
   }, [round]);
@@ -46,6 +47,7 @@ export default function MediaPlayer(props) {
 
   async function unloadSong() {
     if (sound._loaded) {
+      setShowPlayButton(true);
       await sound.unloadAsync();
     }
   }
@@ -81,7 +83,7 @@ export default function MediaPlayer(props) {
   if (countdown) return <Text style={style.rankTitle}>{countdown}</Text>;
   return (
     <View style={style.container}>
-      {!showPlayButton && (
+      {showPlayButton && (
         <Button
           title="Play Song"
           onPress={playSong}
