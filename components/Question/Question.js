@@ -14,6 +14,7 @@ import { songs } from "../../utils/exampleQuestions";
 
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
+  const [clicked, setClicked] = useState(false);
 
   return (
     <View style={style.container}>
@@ -27,9 +28,17 @@ const Question = ({ navigation }) => {
           <SongProgress songs={songs} round={round} />
         </View>
         <View style={style.bottom}>
-          <Answers songs={songs} round={round} style={style.answers} />
+          <Answers
+            clicked={clicked}
+            setClicked={setClicked}
+            songs={songs}
+            round={round}
+            style={style.answers}
+          />
           {round < 10 ? (
-            <NextButton setRound={setRound} />
+            clicked ? (
+              <NextButton setClicked={setClicked} setRound={setRound} />
+            ) : null
           ) : (
             <ResultButton navigation={navigation} setRound={setRound} />
           )}
