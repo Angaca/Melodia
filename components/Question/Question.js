@@ -39,7 +39,7 @@ const Question = ({ navigation }) => {
             clicked ? (
               <NextButton setClicked={setClicked} setRound={setRound} />
             ) : (
-              <Button color={"transparent"} />
+              <Button title="" color={"transparent"} />
             )
           ) : (
             <ResultButton
