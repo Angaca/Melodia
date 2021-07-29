@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { View, Button, Text, StyleSheet } from "react-native";
-import AppStyle from "../../style/App.style";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 
@@ -26,7 +25,7 @@ export default function MediaPlayer(props) {
   }, [round]);
 
   useEffect(() => {
-    if(countdown < 0) setCountdown(0)
+    if (countdown < 0) setCountdown(0);
     if (countdown > 0)
       setTimeout(() => {
         setCountdown((curr) => curr - 1);
@@ -72,7 +71,7 @@ export default function MediaPlayer(props) {
   }
 
   return (
-    <View style={AppStyle.container}>
+    <View style={style.container}>
       {countdown !== 0 && <Text style={style.rankTitle}>{countdown}</Text>}
       {!isPlaying && !countdown && (
         <Button
@@ -86,9 +85,13 @@ export default function MediaPlayer(props) {
 }
 
 const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
   rankTitle: {
     fontSize: heightPercentageToDP("6%"),
     color: "#E0B318",
-    fontWeight: 800,
-  }
-})
+    fontWeight: "800",
+  },
+});
