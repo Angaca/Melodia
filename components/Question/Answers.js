@@ -7,7 +7,6 @@ import answerPage from "./answerPageStyle/answerPage.js";
 const Answers = (props) => {
   const { songs, round, clicked, setClicked } = props;
   const { setScore } = useContext(ScoreContext);
-  const [userAnswer, setUserAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
 
   if (!round || !songs.length) return null;
@@ -17,14 +16,10 @@ const Answers = (props) => {
     );
   }, [round]);
 
-  useEffect(() => {
-    if (userAnswer === songs[round - 1].name) {
+  const handleAnswer = (answer) => {
+    if (answer === songs[round - 1].name) {
       setScore((currentScore) => currentScore + 10);
     }
-  }, [userAnswer]);
-
-  const handleAnswer = (answer) => {
-    setUserAnswer(answer);
     setClicked(true);
   };
 
