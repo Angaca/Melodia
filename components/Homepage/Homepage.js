@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import MusicStaff from "./../../style/imgs/staff.svg";
 import BackgroundImage from "./../../style/imgs/staff.svg";
+import { FadeInView } from "./Animations";
 
 import AppTitle from "../Shared/AppTitle";
 import {
@@ -28,7 +29,9 @@ const Homepage = ({ navigation }) => {
           {Platform.OS !== "web" && (
             <MusicStaff height={"50%"} width={"100%"} />
           )}
-          <AppTitle />
+          <FadeInView>
+            <AppTitle />
+          </FadeInView>
 
           <TouchableOpacity
             onPress={() => navigation.navigate("Question")}
