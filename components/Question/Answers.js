@@ -19,7 +19,7 @@ const Answers = (props) => {
 
   useEffect(() => {
     if (userAnswer === songs[round - 1].name) {
-      setScore((currentScore) => currentScore + 1);
+      setScore((currentScore) => currentScore + 10);
     }
   }, [userAnswer]);
 
