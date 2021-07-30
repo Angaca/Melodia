@@ -6,7 +6,7 @@ import answerPage from "./answerPageStyle/answerPage.js";
 
 const Answers = (props) => {
   const { songs, round, clicked, setClicked } = props;
-  const { setScore } = useContext(ScoreContext);
+  const { setScore, countdown } = useContext(ScoreContext);
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Answers = (props) => {
       <View style={answerPage.answers}>
         {answers.map((answer, index) => (
           <TouchableOpacity
-            disabled={clicked}
+            disabled={clicked || countdown}
             style={
               clicked && answer !== songs[round - 1].name
                 ? answerPage.incorrectBtn

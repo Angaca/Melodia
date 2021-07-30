@@ -1,12 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { View, Button, Text, StyleSheet } from "react-native";
+import { ScoreContext } from "../../context/ScoreContext";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 
 export default function MediaPlayer(props) {
   const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
-  const [countdown, setCountdown] = useState(3);
+  const { countdown, setCountdown } = useContext(ScoreContext);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [sound] = useState(new Audio.Sound());
 

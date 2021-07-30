@@ -11,9 +11,10 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [score, setScore] = useState(0);
+  const [countdown, setCountdown] = useState(3);
 
   return (
-    <ScoreContext.Provider value={{ score, setScore }}>
+    <ScoreContext.Provider value={{ score, setScore, countdown, setCountdown }}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
