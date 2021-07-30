@@ -10,7 +10,7 @@ const Answers = (props) => {
   const [userAnswer, setUserAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
 
-  if (!round) return null;
+  if (!round || !songs.length) return null;
   useEffect(() => {
     setAnswers(
       shuffleArray([songs[round - 1].name, ...songs[round - 1].answers])
