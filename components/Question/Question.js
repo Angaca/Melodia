@@ -41,13 +41,13 @@ const Question = ({ navigation }) => {
             clicked ? (
               <NextButton setClicked={setClicked} setRound={setRound} />
             ) : null
-          ) : (
+          ) : clicked ? (
             <ResultButton
               setClicked={setClicked}
               navigation={navigation}
               setRound={setRound}
             />
-          )}
+          ) : null}
         </View>
       </ImageBackground>
     </View>
