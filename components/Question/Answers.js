@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { shuffleArray } from "../../utils/Array";
 import { ScoreContext } from "../../context/ScoreContext";
 import answerPage from "./answerPageStyle/answerPage.js";
+import { FadeInView } from "../Homepage/Animations";
 
 const Answers = (props) => {
   const { songs, round, clicked, setClicked } = props;
@@ -26,23 +27,25 @@ const Answers = (props) => {
     setClicked(true);
   };
 
-  if (!round || !songs.length) return null;
+  if (!round || !songs.length || countdown) return null;
   return (
     <View style={answerPage.container}>
       <View style={answerPage.answers}>
         {answers.map((answer, index) => (
-          <TouchableOpacity
-            disabled={clicked || countdown}
-            style={
-              clicked && answer !== songs[round - 1].name
-                ? answerPage.incorrectBtn
-                : answerPage.button
-            }
-            key={`answer${index}`}
-            onPress={() => handleAnswer(answer)}
-          >
-            <Text style={answerPage.answerOption}> {answer} </Text>
-          </TouchableOpacity>
+          <FadeInView>
+            <TouchableOpacity
+              disabled={clicked}
+              style={
+                clicked && answer !== songs[round - 1].name
+                  ? answerPage.incorrectBtn
+                  : answerPage.button
+              }
+              key={`answer${index}`}
+              onPress={() => handleAnswer(answer)}
+            >
+              <Text style={answerPage.answerOption}> {answer} </Text>
+            </TouchableOpacity>
+          </FadeInView>
         ))}
       </View>
     </View>

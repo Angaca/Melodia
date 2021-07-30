@@ -8,7 +8,7 @@ import {
 } from "react-native-responsive-screen";
 
 const FinalScore = () => {
-  const { score } = useContext(ScoreContext);
+  const { score, username } = useContext(ScoreContext);
   const resultMessages = [
     "Booo",
     "Not quite my tempo...",
@@ -18,7 +18,7 @@ const FinalScore = () => {
   const messageIndex = Math.floor(score / 30);
   return (
     <View style={AppStyle.container}>
-      <Text style={style.rankTitle}>{resultMessages[messageIndex]}</Text>
+      <Text style={style.rankTitle}>{resultMessages[messageIndex]}, {username}</Text>
       <Text style={style.score}>You got {`${score}`} out of 100!</Text>
     </View>
   );

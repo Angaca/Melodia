@@ -11,14 +11,17 @@ import {
 import MusicStaff from "./../../style/imgs/staff.svg";
 import BackgroundImage from "./../../style/imgs/staff.svg";
 import { FadeInView } from "./Animations";
+import Username from "./Username";
 
 import AppTitle from "../Shared/AppTitle";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useState } from "react";
 
 const Homepage = ({ navigation }) => {
+  const [showUsername, setShowUsername] = useState(false);
   return (
     <View style={style.container}>
       <ImageBackground
@@ -33,12 +36,16 @@ const Homepage = ({ navigation }) => {
             <AppTitle />
           </FadeInView>
 
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Question")}
-            style={style.triangle}
-          ></TouchableOpacity>
-          {/* <StartButton style={style.triangle} navigation={navigation} /> */}
+          {showUsername ? (
+            <Username navigation={navigation} />
+          ) : (
+            <TouchableOpacity
+              onPress={() => setShowUsername(true)}
+              style={style.triangle}
+            ></TouchableOpacity>
+          )}
         </View>
+
         <Button
           onPress={() => navigation.navigate("Results")}
           title="results"
