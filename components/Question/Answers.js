@@ -9,11 +9,14 @@ const Answers = (props) => {
   const { setScore } = useContext(ScoreContext);
   const [answers, setAnswers] = useState([]);
 
-  if (!round || !songs.length) return null;
   useEffect(() => {
-    setAnswers(
-      shuffleArray([songs[round - 1].name, ...songs[round - 1].answers])
-    );
+    if (songs[round - 1]) {
+      const answers = shuffleArray([
+        songs[round - 1].name,
+        ...songs[round - 1].answers,
+      ]);
+      setAnswers(answers);
+    }
   }, [round]);
 
   const handleAnswer = (answer) => {
@@ -23,6 +26,7 @@ const Answers = (props) => {
     setClicked(true);
   };
 
+  if (!round || !songs.length) return null;
   return (
     <View style={answerPage.container}>
       <View style={answerPage.answers}>
