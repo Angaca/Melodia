@@ -28,13 +28,15 @@ export const useSpotify = () => {
   const [accessToken, setAccessToken] = useState();
 
   useEffect(() => {
-    if (!accessToken) {
-      getSpotifyToken()
-        .then((access_token) => {
-          setAccessToken(access_token);
-        })
-        .catch((err) => console.log(err));
-    }
+    let isMounted = true;
+    getSpotifyToken()
+      .then((access_token) => {
+        if (isMounted) setAccessToken(access_token);
+      })
+      .catch((err) => console.log(err));
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   async function getTracksByArtist(artist) {
