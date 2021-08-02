@@ -11,7 +11,8 @@ import {
 } from "react-native-responsive-screen";
 import ResultButton from "./ResultButton";
 import { songs } from "../../utils/exampleQuestions";
-
+import SubmitBtn from "../Shared/SubmitBtn";
+import TitleStaff from "./../../style/imgs/simpleLogo.svg";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -23,8 +24,10 @@ const Question = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={style.top}>
-          <AppTitle />
           <RoundProgress round={round} />
+          {Platform.OS !== "web" && (
+            <TitleStaff style={style.appLogo} width={wp("100%")} />
+          )}
           <SongProgress songs={songs} round={round} />
         </View>
         <View style={style.answers}>
@@ -36,10 +39,10 @@ const Question = ({ navigation }) => {
             style={style.answers}
           />
         </View>
-        <View style={style.nextBtn}>
+        <View style={style.submitBtn}>
           {round < 10 ? (
             clicked ? (
-              <NextButton setClicked={setClicked} setRound={setRound} />
+              <SubmitBtn setClicked={setClicked} setRound={setRound} />
             ) : null
           ) : clicked ? (
             <ResultButton
@@ -63,15 +66,24 @@ const style = StyleSheet.create({
     alignItems: "center",
     height: hp("100%"),
   },
+
+  appLogo: {
+    height: hp("40%"),
+    marginTop: hp("-20%"),
+    marginBottom: hp("-6%"),
+  },
   answers: {
     height: hp("43%"),
+    marginTop: hp("-3%"),
+    marginBottom: hp("-2%"),
   },
 
   top: {
     height: hp("50%"),
   },
-  nextBtn: {
-    height: hp("7%"),
+  submitBtn: {
+    height: hp("3%"),
+    alignItems: "center",
   },
 });
 

@@ -25,6 +25,7 @@ async function signOut() {
     console.log("error signing out: ", error);
   }
 }
+import QuestionAnimation from "../Shared/PlayBtn";
 
 const Homepage = ({ navigation }) => {
   const [showUsername, setShowUsername] = useState(false);
@@ -35,7 +36,13 @@ const Homepage = ({ navigation }) => {
         style={style.bgImage}
       >
         <View style={style.content}>
-          {Platform.OS !== "web" && <TitleStaff width={hp("100%")} />}
+          {Platform.OS !== "web" && (
+            <TitleStaff
+              width={wp("100%")}
+              height={hp("40%")}
+              marginTop={hp("-2%")}
+            />
+          )}
 
           {showUsername ? (
             <Username navigation={navigation} />
@@ -45,8 +52,10 @@ const Homepage = ({ navigation }) => {
               <Button title="signout" onPress={() => signOut()} />
             </TouchableOpacity>
           )}
-              <Button title="results" onPress={() => navigation.navigate('Results')} />
-
+          <Button
+            title="results"
+            onPress={() => navigation.navigate("Results")}
+          />
         </View>
         {/*  <Button
           onPress={() => navigation.navigate("Results")}

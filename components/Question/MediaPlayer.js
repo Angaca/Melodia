@@ -4,6 +4,7 @@ import { View, Button, Text, StyleSheet } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
+import QuestionAnimation from "./QuestionAnimation";
 
 export default function MediaPlayer(props) {
   const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
@@ -86,10 +87,10 @@ export default function MediaPlayer(props) {
   return (
     <View style={style.container}>
       {showPlayButton && (
-        <Button
-          title="Play Song"
+        <QuestionAnimation
+          style={style.questionSVG}
           onPress={playSong}
-          accessibilityLabel="Play Song!"
+          loop={false}
         />
       )}
     </View>
