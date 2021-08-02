@@ -25,6 +25,8 @@ export default class PlayBtn extends React.Component {
 }
 const style = StyleSheet.create({
   playBtn: {
-    height: hp("40%"),
+    height: hp("35%"),
+    width: wp("35%"),
+    alignItems: "center",
   },
 });
