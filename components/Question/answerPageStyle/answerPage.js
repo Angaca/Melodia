@@ -17,6 +17,7 @@ const answerPageStyle = StyleSheet.create({
     padding: 15,
     backgroundColor: "goldenrod",
     borderRadius: 10,
+    elevation: 3,
   },
   answers: {
     flex: 1,
