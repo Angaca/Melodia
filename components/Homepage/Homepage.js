@@ -16,6 +16,15 @@ import {
 } from "react-native-responsive-screen";
 import { useState } from "react";
 import PlayBtn from "../Shared/PlayBtn";
+import { Auth } from "aws-amplify";
+
+async function signOut() {
+  try {
+    await Auth.signOut();
+  } catch (error) {
+    console.log("error signing out: ", error);
+  }
+}
 
 const Homepage = ({ navigation }) => {
   const [showUsername, setShowUsername] = useState(false);
@@ -32,7 +41,8 @@ const Homepage = ({ navigation }) => {
             <Username navigation={navigation} />
           ) : (
             <TouchableOpacity onPress={() => setShowUsername(true)}>
-              <PlayBtn />
+              {/* <PlayBtn /> */}
+              <Button title="test" onPress={() => signOut()} />
             </TouchableOpacity>
           )}
         </View>

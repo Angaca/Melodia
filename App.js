@@ -6,10 +6,15 @@ import { ScoreContext } from "./context/ScoreContext";
 import Homepage from "./components/Homepage/Homepage";
 import Question from "./components/Question/Question";
 import Results from "./components/Results/Results";
+import Amplify, { Auth } from "aws-amplify";
+import awsconfig from "./aws-exports";
+import { withAuthenticator } from "aws-amplify-react-native";
+
+Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
 
-export default function App() {
+function App() {
   const [score, setScore] = useState(0);
   const [countdown, setCountdown] = useState(3);
   const [username, setUsername] = useState();
@@ -48,3 +53,5 @@ export default function App() {
     </ScoreContext.Provider>
   );
 }
+
+export default withAuthenticator(App);
