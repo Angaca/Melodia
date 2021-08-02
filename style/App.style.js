@@ -10,11 +10,6 @@ const AppStyle = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  textInput: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-  },
 });
 
 export default AppStyle;
