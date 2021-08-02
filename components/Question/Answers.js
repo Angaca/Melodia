@@ -32,7 +32,7 @@ const Answers = (props) => {
     <View style={answerPage.container}>
       <View style={answerPage.answers}>
         {answers.map((answer, index) => (
-          <FadeInView>
+          <FadeInView key={`answer${index}`}>
             <TouchableOpacity
               disabled={clicked}
               style={
@@ -40,7 +40,6 @@ const Answers = (props) => {
                   ? answerPage.incorrectBtn
                   : answerPage.button
               }
-              key={`answer${index}`}
               onPress={() => handleAnswer(answer)}
             >
               <Text style={answerPage.answerOption}> {answer} </Text>
