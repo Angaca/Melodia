@@ -74,6 +74,8 @@ const style = StyleSheet.create({
   },
   answers: {
     height: hp("43%"),
+    marginTop: hp("-3%"),
+    marginBottom: hp("-2%"),
   },
 
   top: {
