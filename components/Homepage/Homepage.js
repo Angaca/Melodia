@@ -6,8 +6,9 @@ import {
   Platform,
   TouchableOpacity,
   Button,
+  Dimensions,
 } from "react-native";
-import TitleStaff from "./../../style/imgs/TitleStaffSmooth.svg";
+import TitleStaff from "./../../style/imgs/simpleLogo.svg";
 import Username from "./Username";
 import {
   widthPercentageToDP as wp,
@@ -25,9 +26,7 @@ const Homepage = ({ navigation }) => {
         style={style.bgImage}
       >
         <View style={style.content}>
-          {Platform.OS !== "web" && (
-            <TitleStaff height={"50%"} width={"100%"} />
-          )}
+          {Platform.OS !== "web" && <TitleStaff width={hp("100%")} />}
 
           {showUsername ? (
             <Username navigation={navigation} />
@@ -37,10 +36,10 @@ const Homepage = ({ navigation }) => {
             </TouchableOpacity>
           )}
         </View>
-        <Button
+        {/*  <Button
           onPress={() => navigation.navigate("Results")}
           title="results"
-        />
+        /> */}
       </ImageBackground>
     </View>
   );
@@ -48,8 +47,12 @@ const Homepage = ({ navigation }) => {
 
 const style = StyleSheet.create({
   bgImage: {
-    width: "100%",
-    height: "100%",
+    position: "absolute",
+    left: 0,
+    top: 0,
+    height: hp("100%"),
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height,
   },
   content: {
     flex: 1,
