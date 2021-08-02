@@ -8,6 +8,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import Leaderboard from "./Leaderboard";
 
 const Results = ({ navigation }) => {
   return (
@@ -19,6 +20,7 @@ const Results = ({ navigation }) => {
         <View style={style.results}>
           <Text style={style.appTitle}>Melodia</Text>
           <FinalScore />
+          <Leaderboard />
         </View>
         <View style={style.btns}>
           <NewGameButton navigation={navigation} />

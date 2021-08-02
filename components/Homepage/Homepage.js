@@ -42,9 +42,11 @@ const Homepage = ({ navigation }) => {
           ) : (
             <TouchableOpacity onPress={() => setShowUsername(true)}>
               {/* <PlayBtn /> */}
-              <Button title="test" onPress={() => signOut()} />
+              <Button title="signout" onPress={() => signOut()} />
             </TouchableOpacity>
           )}
+              <Button title="results" onPress={() => navigation.navigate('Results')} />
+
         </View>
         {/*  <Button
           onPress={() => navigation.navigate("Results")}
