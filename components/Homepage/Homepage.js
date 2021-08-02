@@ -8,7 +8,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import TitleStaff from "./../../style/imgs/simpleLogo.svg";
+import TitleStaff from "./../../style/imgs/altLogo.svg";
 import Username from "./Username";
 import {
   widthPercentageToDP as wp,
@@ -16,7 +16,6 @@ import {
 } from "react-native-responsive-screen";
 import { useState } from "react";
 import PlayBtn from "../Shared/PlayBtn";
-import QuestionAnimation from "../Shared/PlayBtn";
 
 const Homepage = ({ navigation }) => {
   const [showUsername, setShowUsername] = useState(false);
@@ -26,15 +25,15 @@ const Homepage = ({ navigation }) => {
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={style.bgImage}
       >
+        {Platform.OS !== "web" && (
+          <TitleStaff
+            width={wp("100%")}
+            height={hp("40%")}
+            marginTop={hp("3.3%")}
+            marginBottom={hp("-6%")}
+          />
+        )}
         <View style={style.content}>
-          {Platform.OS !== "web" && (
-            <TitleStaff
-              width={wp("100%")}
-              height={hp("40%")}
-              marginTop={hp("-2%")}
-            />
-          )}
-
           {showUsername ? (
             <Username navigation={navigation} />
           ) : (
