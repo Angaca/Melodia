@@ -6,19 +6,21 @@ import {
   View,
   Platform,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Button,
 } from "react-native";
-import MusicStaff from "./../../style/imgs/staff.svg";
+import TitleStaff from "./../../style/imgs/TitleStaffSmooth.svg";
 import BackgroundImage from "./../../style/imgs/staff.svg";
 import { FadeInView } from "./Animations";
 import Username from "./Username";
-
+import LottieView from "lottie-react-native";
 import AppTitle from "../Shared/AppTitle";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useState } from "react";
+import PlayBtn from "../Shared/PlayBtn";
 
 const Homepage = ({ navigation }) => {
   const [showUsername, setShowUsername] = useState(false);
@@ -30,19 +32,15 @@ const Homepage = ({ navigation }) => {
       >
         <View style={style.welcomeContainer}>
           {Platform.OS !== "web" && (
-            <MusicStaff height={"50%"} width={"100%"} />
+            <TitleStaff height={"50%"} width={"100%"} />
           )}
-          <FadeInView>
-            <AppTitle />
-          </FadeInView>
 
           {showUsername ? (
             <Username navigation={navigation} />
           ) : (
-            <TouchableOpacity
-              onPress={() => setShowUsername(true)}
-              style={style.triangle}
-            ></TouchableOpacity>
+            <TouchableOpacity onPress={() => setShowUsername(true)}>
+              <PlayBtn />
+            </TouchableOpacity>
           )}
         </View>
 
@@ -61,6 +59,11 @@ const style = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     backgroundColor: "transparent",
+  },
+  playBtn: {
+    height: hp("60%"),
+    width: wp("60%"),
+    alignItems: "center",
   },
   welcomeContainer: {
     flex: 1,
