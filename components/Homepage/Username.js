@@ -1,8 +1,13 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import { TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
 import AppStyle from "../../style/App.style";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import SubmitBtn from "../Shared/SubmitBtn";
 
 const Username = (props) => {
   const { navigation } = props;
@@ -17,17 +22,38 @@ const Username = (props) => {
   };
 
   return (
-    <View style={AppStyle.container}>
+    <View style={style.inputContainer}>
       <TextInput
-        style={AppStyle.textInput}
-        placeholder="Enter your username"
-        onChangeText={text => setInput(text)} 
+        style={style.usernameInput}
+        placeholder="Username"
+        onChangeText={(text) => setInput(text)}
       ></TextInput>
-      <TouchableOpacity onPress={submit} title="Submit" height={50} width={250}>
-        <Text>Press</Text>
+      <TouchableOpacity onPress={submit} title="Submit">
+        <SubmitBtn style={style.submit} />
       </TouchableOpacity>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  inputContainer: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    height: hp("50%"),
+  },
+  submit: {
+    height: hp("15%"),
+    width: wp("15%"),
+  },
+  usernameInput: {
+    height: hp("7%"),
+    width: wp("56%"),
+    borderRadius: 20,
+    backgroundColor: "white",
+    elevation: 3,
+  },
+});
 
 export default Username;
