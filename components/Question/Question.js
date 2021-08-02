@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Text, View, StyleSheet, ImageBackground } from "react-native";
+import { View, StyleSheet, ImageBackground } from "react-native";
 import Answers from "./Answers";
 import AppTitle from "../Shared/AppTitle";
 import NextButton from "./NextButton";
