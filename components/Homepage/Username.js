@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { TextInput, View, Button } from "react-native";
+import { Text, TextInput, View, TouchableOpacity } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
 import AppStyle from "../../style/App.style";
 
@@ -10,11 +10,10 @@ const Username = (props) => {
   const [input, setInput] = useState();
 
   const submit = () => {
-    console.log(input)
-      if (input) {
-        setUsername(input);
-        navigation.navigate("Question");
-      }
+    if (input) {
+      setUsername(input);
+      navigation.navigate("Question");
+    }
   };
 
   return (
@@ -22,11 +21,11 @@ const Username = (props) => {
       <TextInput
         style={AppStyle.textInput}
         placeholder="Enter your username"
-        onChange={(event) => {
-          setInput(event.target.value);
-        }}
+        onChangeText={text => setInput(text)} 
       ></TextInput>
-      <Button onPress={submit} title="Submit" />
+      <TouchableOpacity onPress={submit} title="Submit" height={50} width={250}>
+        <Text>Press</Text>
+      </TouchableOpacity>
     </View>
   );
 };
