@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
-import AppStyle from "../../style/App.style";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
