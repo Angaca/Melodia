@@ -88,9 +88,9 @@ export default function MediaPlayer(props) {
     <View style={style.container}>
       {showPlayButton && (
         <QuestionAnimation
-          title="Play Song"
+          style={style.questionSVG}
           onPress={playSong}
-          accessibilityLabel="Play Song!"
+          loop={false}
         />
       )}
     </View>
