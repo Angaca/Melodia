@@ -15,6 +15,7 @@ export default class QuestionAnimation extends React.Component {
     return (
       <LottieView
         style={style.SubmitBtn}
+        loop={false}
         ref={(animation) => {
           this.QuestionAnimation = animation;
         }}
