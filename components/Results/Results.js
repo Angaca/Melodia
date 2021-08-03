@@ -1,5 +1,11 @@
 import React from "react";
-import { Text, View, ImageBackground, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import AppStyle from "../../style/App.style";
 import FinalScore from "./FinalScore";
 import HomeButton from "./HomeButton";
@@ -9,6 +15,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import TitleStaff from "./../../style/imgs/altLogo.svg";
+import SubmitBtn from "../Shared/SubmitBtn";
 
 const Results = ({ navigation }) => {
   return (
@@ -29,7 +36,9 @@ const Results = ({ navigation }) => {
           <FinalScore />
         </View>
         <View style={style.btns}>
-          <NewGameButton navigation={navigation} />
+          <TouchableOpacity onPress={() => navigation.navigate("Question")}>
+            <SubmitBtn navigation={navigation} />
+          </TouchableOpacity>
           <HomeButton navigation={navigation} />
         </View>
       </ImageBackground>
