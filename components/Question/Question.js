@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, ImageBackground } from "react-native";
 import Answers from "./Answers";
-import AppTitle from "../Shared/AppTitle";
-import NextButton from "./NextButton";
 import RoundProgress from "./RoundProgress";
 import SongProgress from "./SongProgress";
 import {
@@ -12,7 +10,7 @@ import {
 import ResultButton from "./ResultButton";
 import { songs } from "../../utils/exampleQuestions";
 import SubmitBtn from "../Shared/SubmitBtn";
-import TitleStaff from "./../../style/imgs/simpleLogo.svg";
+import TitleStaff from "./../../style/imgs/altLogo.svg";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -23,11 +21,16 @@ const Question = ({ navigation }) => {
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={{ width: "100%", height: "100%" }}
       >
+        {Platform.OS !== "web" && (
+          <TitleStaff
+            width={wp("100%")}
+            height={hp("40%")}
+            marginTop={hp("3.3%")}
+            marginBottom={hp("-6%")}
+          />
+        )}
         <View style={style.top}>
-          <RoundProgress round={round} />
-          {Platform.OS !== "web" && (
-            <TitleStaff style={style.appLogo} width={wp("100%")} />
-          )}
+          {/*  <RoundProgress round={round} /> */}
           <SongProgress songs={songs} round={round} />
         </View>
         <View style={style.answers}>
@@ -68,18 +71,15 @@ const style = StyleSheet.create({
   },
 
   appLogo: {
-    height: hp("40%"),
-    marginTop: hp("-20%"),
     marginBottom: hp("-6%"),
   },
   answers: {
     height: hp("43%"),
-    marginTop: hp("-3%"),
     marginBottom: hp("-2%"),
   },
 
   top: {
-    height: hp("50%"),
+    height: hp("20%"),
   },
   submitBtn: {
     height: hp("3%"),

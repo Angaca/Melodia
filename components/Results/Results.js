@@ -9,6 +9,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Leaderboard from "./Leaderboard";
+import TitleStaff from "./../../style/imgs/altLogo.svg";
 
 const Results = ({ navigation }) => {
   return (
@@ -17,8 +18,15 @@ const Results = ({ navigation }) => {
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={{ width: "100%", height: "100%" }}
       >
+        {Platform.OS !== "web" && (
+          <TitleStaff
+            width={wp("100%")}
+            height={hp("40%")}
+            marginTop={hp("3.3%")}
+            marginBottom={hp("-6%")}
+          />
+        )}
         <View style={style.results}>
-          <Text style={style.appTitle}>Melodia</Text>
           <FinalScore />
           <Leaderboard />
         </View>
