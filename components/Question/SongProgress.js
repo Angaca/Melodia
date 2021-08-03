@@ -17,7 +17,7 @@ const SongProgress = (props) => {
           size={120}
           width={15}
           fill={100}
-          tintColor="#00e0ff"
+          tintColor="#256EFF"
           backgroundColor="#3d5875"
           duration={duration}
         >
