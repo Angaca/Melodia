@@ -18,7 +18,9 @@ const FinalScore = () => {
   const messageIndex = Math.floor(score / 30);
   return (
     <View style={AppStyle.container}>
-      <Text style={style.rankTitle}>{resultMessages[messageIndex]}, {username}</Text>
+      <Text style={style.rankTitle}>
+        {resultMessages[messageIndex]}, {username}
+      </Text>
       <Text style={style.score}>You got {`${score}`} out of 100!</Text>
     </View>
   );
@@ -26,12 +28,12 @@ const FinalScore = () => {
 
 const style = StyleSheet.create({
   rankTitle: {
-    fontSize: hp("6%"),
-    color: "#E0B318",
+    fontSize: hp("4%"),
+    color: "white",
     fontWeight: "700",
   },
   score: {
-    fontSize: hp("3%"),
+    fontSize: hp("2.5%"),
     color: "white",
     fontWeight: "700",
   },
