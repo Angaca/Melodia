@@ -42,6 +42,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     height: hp("50%"),
+    marginBottom: hp("40%"),
   },
   submit: {
     height: hp("15%"),
@@ -52,6 +53,7 @@ const style = StyleSheet.create({
     width: wp("56%"),
     borderRadius: 20,
     backgroundColor: "white",
+    textAlign: "center",
     elevation: 3,
   },
 });
