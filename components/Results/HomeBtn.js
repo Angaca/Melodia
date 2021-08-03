@@ -26,8 +26,8 @@ export default class HomeBtn extends React.Component {
 
 const style = StyleSheet.create({
   HomeBtn: {
-    height: hp("11%"),
-    width: wp("11%"),
+    height: hp("10%"),
+    width: wp("10%"),
     marginBottom: hp("2%"),
   },
 });
