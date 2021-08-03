@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import Answers from "./Answers";
 import RoundProgress from "./RoundProgress";
 import SongProgress from "./SongProgress";
@@ -45,7 +50,17 @@ const Question = ({ navigation }) => {
         <View style={style.submitBtn}>
           {round < 10 ? (
             clicked ? (
-              <SubmitBtn setClicked={setClicked} setRound={setRound} />
+              <TouchableOpacity
+                onPress={() => {
+                  setRound((currentValue) => {
+                    if (currentValue >= 10) return currentValue;
+                    return currentValue + 1;
+                  });
+                  setClicked(false);
+                }}
+              >
+                <SubmitBtn />
+              </TouchableOpacity>
             ) : null
           ) : clicked ? (
             <ResultButton
