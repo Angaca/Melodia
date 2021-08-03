@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { shuffleArray } from "../../utils/Array";
 import { ScoreContext } from "../../context/ScoreContext";
 import answerPage from "./answerPageStyle/answerPage.js";
-import { FadeInView } from "../Homepage/Animations";
+import { FadeInView } from "../Shared/Animations";
 
 const Answers = (props) => {
   const { songs, round, clicked, setClicked } = props;
