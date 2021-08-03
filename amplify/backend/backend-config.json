@@ -1,6 +1,6 @@
 {
   "auth": {
-    "melodia6c90d96e": {
+    "melodia8eb55c30": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
