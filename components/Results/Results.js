@@ -6,16 +6,14 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import AppStyle from "../../style/App.style";
 import FinalScore from "./FinalScore";
-import HomeButton from "./HomeButton";
-import NewGameButton from "./NewGameButton";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import TitleStaff from "./../../style/imgs/altLogo.svg";
 import SubmitBtn from "../Shared/SubmitBtn";
+import HomeBtn from "./HomeBtn";
 
 const Results = ({ navigation }) => {
   return (
@@ -36,10 +34,12 @@ const Results = ({ navigation }) => {
           <FinalScore />
         </View>
         <View style={style.btns}>
+          <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>
+            <HomeBtn navigation={navigation} />
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("Question")}>
             <SubmitBtn navigation={navigation} />
           </TouchableOpacity>
-          <HomeButton navigation={navigation} />
         </View>
       </ImageBackground>
     </View>
