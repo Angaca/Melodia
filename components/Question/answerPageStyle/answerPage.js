@@ -14,7 +14,7 @@ const answerPageStyle = StyleSheet.create({
   button: {
     alignItems: "center",
     padding: 15,
-    backgroundColor: "goldenrod",
+    backgroundColor: "#ffc107ff",
     /*     alt colour #414FF3 */
     borderRadius: 10,
     elevation: 3,
