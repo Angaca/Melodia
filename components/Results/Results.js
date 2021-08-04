@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, View, ImageBackground, StyleSheet } from "react-native";
+import { Platform } from "react-native";
 import AppStyle from "../../style/App.style";
 import {
   Text,
