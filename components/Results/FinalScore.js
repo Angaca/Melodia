@@ -10,10 +10,10 @@ import {
 const FinalScore = () => {
   const { score, username } = useContext(ScoreContext);
   const resultMessages = [
-    "Booo,",
-    "Not quite my tempo,",
-    "Encore,",
-    "Bravo Maestro,",
+    "Booo",
+    "Not quite my tempo",
+    "Encore",
+    "Bravo Maestro",
   ];
   const messageIndex = Math.floor(score / 30);
   return (
