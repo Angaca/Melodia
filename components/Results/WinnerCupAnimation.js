@@ -19,7 +19,6 @@ export default class WinnerCupAnimation extends React.Component {
           this.WinnerCupAnimation = animation;
         }}
         source={require("../../style/animations/winnerCup.json")}
-        loop={false}
       />
     );
   }
