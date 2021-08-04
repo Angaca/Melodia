@@ -25,7 +25,8 @@ export default class SubmitBtn extends React.Component {
 }
 const style = StyleSheet.create({
   SubmitBtn: {
-    height: hp("15%"),
-    width: wp("15%"),
+    height: hp("14%"),
+    width: wp("14%"),
+    marginBottom: hp("1%"),
   },
 });
