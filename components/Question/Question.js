@@ -10,7 +10,10 @@ import {
 import ResultButton from "./ResultButton";
 import { songs } from "../../utils/exampleQuestions";
 import SubmitBtn from "../Shared/SubmitBtn";
+
 import TitleStaff from "./../../style/imgs/altLogo.svg";
+import NextBtn from "./NextBtn";
+import NextButton from "./NextButton";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -45,7 +48,7 @@ const Question = ({ navigation }) => {
         <View style={style.submitBtn}>
           {round < 10 ? (
             clicked ? (
-              <SubmitBtn setClicked={setClicked} setRound={setRound} />
+              <NextButton setClicked={setClicked} setRound={setRound} />
             ) : null
           ) : clicked ? (
             <ResultButton
