@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "melodia",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-melodia-dev-150422-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/8b46d1b2c0d628976d73c2ffd2ec4a1c55bbac00"
+}

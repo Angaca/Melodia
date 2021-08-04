@@ -1,0 +1,4 @@
+type Users @model {
+  username: String!
+  score: Int!
+}

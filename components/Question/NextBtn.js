@@ -6,12 +6,13 @@ import {
 } from "react-native-responsive-screen";
 import LottieView from "lottie-react-native";
 
-const NextBtn = ({ setRound, setClicked }) => {
-  componentDidMount();
+export default class NextBtn extends React.Component {
+ componentDidMount();
   {
-    this.NextBtn.play();
+    this.nextBtn.play();
   }
 
+const Btn = ({ setRound, setClicked }) => {
   const nextRound = () => {
     setRound((currentValue) => {
       if (currentValue >= 10) return currentValue;
@@ -21,9 +22,9 @@ const NextBtn = ({ setRound, setClicked }) => {
 
   return (
     <LottieView
-      style={style.NextBtn}
+      style={style.nextBtn}
       ref={(animation) => {
-        this.NextBtn = animation;
+        this.nextBtn = animation;
       }}
       onPress={() => {
         nextRound();
@@ -32,10 +33,11 @@ const NextBtn = ({ setRound, setClicked }) => {
       source={require("../../style/animations/lottiePlay.json")}
     />
   );
+    }
 };
 
 const style = StyleSheet.create({
-  NextBtn: {
+  nextBtn: {
     height: hp("15%"),
     width: wp("15%"),
   },

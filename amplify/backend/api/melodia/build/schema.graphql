@@ -1,0 +1,151 @@
+type Users {
+  id: ID!
+  username: String!
+  score: Int!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUsersConnection {
+  items: [Users]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelUsersFilterInput {
+  username: ModelStringInput
+  score: ModelIntInput
+  and: [ModelUsersFilterInput]
+  or: [ModelUsersFilterInput]
+  not: ModelUsersFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getUsers(id: ID!): Users
+  listUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String): ModelUsersConnection
+}
+
+input CreateUsersInput {
+  id: ID
+  username: String!
+  score: Int!
+}
+
+input UpdateUsersInput {
+  username: String
+  score: Int
+}
+
+input DeleteUsersInput {
+  id: ID!
+}
+
+type Mutation {
+  createUsers(input: CreateUsersInput!, condition: ModelUsersConditionInput): Users
+  updateUsers(input: UpdateUsersInput!, condition: ModelUsersConditionInput): Users
+  deleteUsers(input: DeleteUsersInput!, condition: ModelUsersConditionInput): Users
+}
+
+input ModelUsersConditionInput {
+  username: ModelStringInput
+  score: ModelIntInput
+  and: [ModelUsersConditionInput]
+  or: [ModelUsersConditionInput]
+  not: ModelUsersConditionInput
+}
+
+type Subscription {
+  onCreateUsers: Users @aws_subscribe(mutations: ["createUsers"])
+  onUpdateUsers: Users @aws_subscribe(mutations: ["updateUsers"])
+  onDeleteUsers: Users @aws_subscribe(mutations: ["deleteUsers"])
+}
