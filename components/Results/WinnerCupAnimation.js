@@ -19,6 +19,7 @@ export default class WinnerCupAnimation extends React.Component {
           this.WinnerCupAnimation = animation;
         }}
         source={require("../../style/animations/winnerCup.json")}
+        loop={false}
       />
     );
   }
@@ -26,8 +27,8 @@ export default class WinnerCupAnimation extends React.Component {
 
 const style = StyleSheet.create({
   WinnerCupAnimation: {
-    height: hp("10%"),
-    width: wp("10%"),
-    marginBottom: hp("2%"),
+    height: hp("18%"),
+    marginBottom: hp("4%"),
+    marginTop: hp("-1.3%"),
   },
 });

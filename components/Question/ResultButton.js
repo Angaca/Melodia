@@ -1,21 +1,24 @@
 import React from "react";
-import { Button, View, StyleSheet } from "react-native";
+import { Button, View, StyleSheet, TouchableOpacity } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import WinnerCupAnimation from "../Results/WinnerCupAnimation";
 
 const ResultButton = ({ setClicked, setRound, navigation }) => {
   return (
     <View style={style.container}>
-      <Button
+      <TouchableOpacity
         onPress={() => {
           navigation.navigate("Results");
           setRound(0);
           setClicked(false);
         }}
         title="Results"
-      />
+      >
+        <WinnerCupAnimation />
+      </TouchableOpacity>
     </View>
   );
 };

@@ -26,6 +26,7 @@ const answerPageStyle = StyleSheet.create({
     backgroundColor: "transparent",
     width: wp("90%"),
     marginBottom: hp("3%"),
+    marginTop: hp("-2%"),
   },
 
   answerOption: {

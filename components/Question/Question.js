@@ -34,8 +34,8 @@ const Question = ({ navigation }) => {
           <TitleStaff
             width={wp("100%")}
             height={hp("40%")}
-            marginTop={hp("3.3%")}
-            marginBottom={hp("-6%")}
+            marginTop={hp("1%")}
+            marginBottom={hp("-9%")}
           />
         )}
         <View style={style.top}>
@@ -97,11 +97,11 @@ const style = StyleSheet.create({
   },
 
   appLogo: {
-    marginBottom: hp("-6%"),
+    marginBottom: hp("-4%"),
   },
   answers: {
     height: hp("43%"),
-    marginBottom: hp("-2%"),
+    marginBottom: hp("-4%"),
   },
 
   top: {
