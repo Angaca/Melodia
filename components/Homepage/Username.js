@@ -52,6 +52,7 @@ const style = StyleSheet.create({
     width: wp("56%"),
     borderRadius: 20,
     backgroundColor: "white",
+    textAlign: "center",
     elevation: 3,
   },
 });

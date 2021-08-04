@@ -6,27 +6,28 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-export default class QuestionAnimation extends React.Component {
+export default class HomeBtn extends React.Component {
   componentDidMount() {
-    this.QuestionAnimation.play();
+    this.HomeBtn.play();
   }
 
   render() {
     return (
       <LottieView
-        style={style.SubmitBtn}
-        loop={false}
+        style={style.HomeBtn}
         ref={(animation) => {
-          this.QuestionAnimation = animation;
+          this.HomeBtn = animation;
         }}
-        source={require("../../style/animations/question.json")}
+        source={require("../../style/animations/yellowHouse.json")}
       />
     );
   }
 }
+
 const style = StyleSheet.create({
-  SubmitBtn: {
-    height: hp("15%"),
-    width: wp("15%"),
+  HomeBtn: {
+    height: hp("10%"),
+    width: wp("10%"),
+    marginBottom: hp("2%"),
   },
 });
