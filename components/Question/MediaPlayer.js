@@ -107,7 +107,7 @@ export default function MediaPlayer(props) {
           loop={false}
         />
       )}
-      {clicked && !countdown && (
+      {clicked && round !== 10 && (
         <TouchableOpacity
           onPress={() => {
             setRound((currentValue) => {
