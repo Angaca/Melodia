@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { View, Button, Text, StyleSheet } from "react-native";
+import { View, Button, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
@@ -19,6 +19,8 @@ export default function MediaPlayer(props) {
     song,
     round,
     clicked,
+    setClicked,
+    setRound,
   } = props;
   const { countdown, setCountdown } = useContext(ScoreContext);
   const [showPlayButton, setShowPlayButton] = useState(false);
@@ -96,21 +98,17 @@ export default function MediaPlayer(props) {
     }
   }
   if (countdown) return <Text style={style.rankTitle}>{countdown}</Text>;
-  else if (!clicked) {
-    return (
-      <View style={style.container}>
-        {showPlayButton && (
-          <QuestionAnimation
-            style={style.questionSVG}
-            onPress={playSong}
-            loop={false}
-          />
-        )}
-      </View>
-    );
-  } else {
-    return <NextBtn />;
-  }
+  return (
+    <View style={style.container}>
+      {showPlayButton && (
+        <QuestionAnimation
+          style={style.questionSVG}
+          onPress={playSong}
+          loop={false}
+        />
+      )}
+    </View>
+  );
 }
 
 const style = StyleSheet.create({

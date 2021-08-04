@@ -19,6 +19,7 @@ import SubmitBtn from "../Shared/SubmitBtn";
 import TitleStaff from "./../../style/imgs/altLogo.svg";
 // import NextBtn from "./NextBtn";
 import NextButton from "./NextButton";
+import NextBtn from "./NextBtn";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -39,20 +40,26 @@ const Question = ({ navigation }) => {
         )}
         <View style={style.top}>
           {/*  <RoundProgress round={round} /> */}
-          <SongProgress songs={songs} round={round} clicked={clicked} />
-        </View>
-        <View style={style.answers}>
-          <Answers
-            clicked={clicked}
-            setClicked={setClicked}
+          <SongProgress
             songs={songs}
             round={round}
-            style={style.answers}
+            clicked={clicked}
+            setRound={setRound}
+            setClicked={setClicked}
           />
         </View>
         <View style={style.submitBtn}>
-          {/* {round < 10 ? 
-            clicked ? 
+          <View style={style.answers}>
+            <Answers
+              clicked={clicked}
+              setClicked={setClicked}
+              songs={songs}
+              round={round}
+              style={style.answers}
+            />
+          </View>
+          {round < 10 ? (
+            clicked ? (
               <TouchableOpacity
                 onPress={() => {
                   setRound((currentValue) => {
@@ -64,15 +71,15 @@ const Question = ({ navigation }) => {
               >
                 <SubmitBtn />
               </TouchableOpacity>
-              <NextButton setClicked={setClicked} setRound={setRound} />
-            
-           
+            ) : null
+          ) : clicked ? (
+            // <NextButton setClicked={setClicked} setRound={setRound} />
             <ResultButton
               setClicked={setClicked}
               navigation={navigation}
               setRound={setRound}
             />
-           : null} */}
+          ) : null}
         </View>
       </ImageBackground>
     </View>
