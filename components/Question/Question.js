@@ -58,21 +58,7 @@ const Question = ({ navigation }) => {
               style={style.answers}
             />
           </View>
-          {round < 10 ? (
-            clicked ? (
-              <TouchableOpacity
-                onPress={() => {
-                  setRound((currentValue) => {
-                    if (currentValue >= 10) return currentValue;
-                    return currentValue + 1;
-                  });
-                  setClicked(false);
-                }}
-              >
-                <SubmitBtn />
-              </TouchableOpacity>
-            ) : null
-          ) : clicked ? (
+          {round === 10 && clicked ? (
             // <NextButton setClicked={setClicked} setRound={setRound} />
             <ResultButton
               setClicked={setClicked}

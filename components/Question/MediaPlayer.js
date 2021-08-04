@@ -9,7 +9,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import NextBtn from "./NextBtn";
+import PlayBtn from "../Shared/PlayBtn";
 
 export default function MediaPlayer(props) {
   const {
@@ -100,12 +100,25 @@ export default function MediaPlayer(props) {
   if (countdown) return <Text style={style.rankTitle}>{countdown}</Text>;
   return (
     <View style={style.container}>
-      {showPlayButton && (
+      {showPlayButton && !clicked && (
         <QuestionAnimation
           style={style.questionSVG}
           onPress={playSong}
           loop={false}
         />
+      )}
+      {clicked && round !== 10 && (
+        <TouchableOpacity
+          onPress={() => {
+            setRound((currentValue) => {
+              if (currentValue >= 10) return currentValue;
+              return currentValue + 1;
+            });
+            setClicked(false);
+          }}
+        >
+          <PlayBtn width={100} height={100}/>
+        </TouchableOpacity>
       )}
     </View>
   );

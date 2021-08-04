@@ -14,7 +14,7 @@ const SongProgress = (props) => {
     <View style={AppStyle.container}>
       {isPlaying && (
         <AnimatedCircularProgress
-          size={120}
+          size={110}
           width={15}
           fill={100}
           tintColor="#256EFF"
