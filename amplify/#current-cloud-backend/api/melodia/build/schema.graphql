@@ -1,10 +1,7 @@
-type Users @aws_iam @aws_api_key {
+type Users {
   id: ID!
   username: String!
   score: Int!
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -14,10 +11,9 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelUsersConnection @aws_api_key @aws_iam {
+type ModelUsersConnection {
   items: [Users]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -115,33 +111,29 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  getUsers(id: ID!): Users @aws_api_key @aws_iam
-  listUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String): ModelUsersConnection @aws_api_key @aws_iam
-  syncUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUsersConnection @aws_api_key @aws_iam
+  getUsers(id: ID!): Users
+  listUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String): ModelUsersConnection
 }
 
 input CreateUsersInput {
   id: ID
   username: String!
   score: Int!
-  _version: Int
 }
 
 input UpdateUsersInput {
   username: String
   score: Int
-  _version: Int
 }
 
 input DeleteUsersInput {
   id: ID!
-  _version: Int
 }
 
 type Mutation {
-  createUsers(input: CreateUsersInput!, condition: ModelUsersConditionInput): Users @aws_api_key @aws_iam
-  updateUsers(input: UpdateUsersInput!, condition: ModelUsersConditionInput): Users @aws_api_key @aws_iam
-  deleteUsers(input: DeleteUsersInput!, condition: ModelUsersConditionInput): Users @aws_api_key @aws_iam
+  createUsers(input: CreateUsersInput!, condition: ModelUsersConditionInput): Users
+  updateUsers(input: UpdateUsersInput!, condition: ModelUsersConditionInput): Users
+  deleteUsers(input: DeleteUsersInput!, condition: ModelUsersConditionInput): Users
 }
 
 input ModelUsersConditionInput {
@@ -153,7 +145,7 @@ input ModelUsersConditionInput {
 }
 
 type Subscription {
-  onCreateUsers: Users @aws_subscribe(mutations: ["createUsers"]) @aws_api_key @aws_iam
-  onUpdateUsers: Users @aws_subscribe(mutations: ["updateUsers"]) @aws_api_key @aws_iam
-  onDeleteUsers: Users @aws_subscribe(mutations: ["deleteUsers"]) @aws_api_key @aws_iam
+  onCreateUsers: Users @aws_subscribe(mutations: ["createUsers"])
+  onUpdateUsers: Users @aws_subscribe(mutations: ["updateUsers"])
+  onDeleteUsers: Users @aws_subscribe(mutations: ["deleteUsers"])
 }

@@ -33,10 +33,10 @@ const Homepage = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
-        {/*  <Button
+        <Button
           onPress={() => navigation.navigate("Results")}
           title="results"
-        /> */}
+        />
         <View style={style.content}>
           {showUsername ? (
             <Username navigation={navigation} style={style.username} />

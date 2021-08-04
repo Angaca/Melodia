@@ -12,29 +12,6 @@
       "AmplifyAppId": "d26c9t1gb6li1z"
     }
   },
-  "auth": {
-    "melodia6c90d96e": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false,
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-melodia-dev-174144-deployment/amplify-cfn-templates/auth/melodia6c90d96e-cloudformation-template.yml",
-        "logicalId": "authmelodia6c90d96e"
-      },
-      "lastPushTimeStamp": "2021-08-04T16:57:57.662Z",
-      "output": {
-        "UserPoolId": "eu-west-2_9irWPnpJk",
-        "AppClientIDWeb": "6vaegiia0evuf2d3266np7qnue",
-        "AppClientID": "23cnurl44860u3u51llir9u851",
-        "IdentityPoolId": "eu-west-2:3bc0157e-7306-4649-aef6-421d50e7e5bf",
-        "UserPoolArn": "arn:aws:cognito-idp:eu-west-2:965752990804:userpool/eu-west-2_9irWPnpJk",
-        "IdentityPoolName": "melodia6c90d96e_identitypool_6c90d96e__dev",
-        "UserPoolName": "melodia6c90d96e_userpool_6c90d96e"
-      },
-      "lastPushDirHash": "zoWUERJhwScycDAiknGyMimLIrA="
-    }
-  },
   "api": {
     "melodia": {
       "service": "AppSync",
@@ -44,26 +21,22 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
+              "apiKeyExpirationDays": 7,
+              "description": "melodia"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
+          "additionalAuthenticationProviders": []
         },
         "GraphQLAPIIdOutput": "bfmbptsek5dzhipaq62vppcogu",
         "GraphQLAPIEndpointOutput": "https://euyi6354pzfsvp6nr4xleg4hae.appsync-api.eu-west-2.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-unzpjfd2jzeczik4ce7vf72tbe"
       },
-      "lastPushTimeStamp": "2021-08-04T16:57:57.662Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-melodia-dev-174144-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apimelodia"
       },
-      "lastPushDirHash": "+6ujV0WLYPd98m2AqenoQ1ofCE4="
+      "lastPushTimeStamp": "2021-08-04T17:11:31.250Z",
+      "lastPushDirHash": "ZzJhJ5pSvjPUSlLhPkCUnFMKMFE="
     }
   }
 }

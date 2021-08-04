@@ -67,12 +67,12 @@ $util.qr($context.args.input.put("__typename", "Users"))
 #set( $expAdd = {} )
 #set( $expRemove = [] )
 #if( $modelObjectKey )
-  #set( $keyFields = ["_version", "_deleted", "_lastChangedAt"] )
+  #set( $keyFields = [] )
   #foreach( $entry in $modelObjectKey.entrySet() )
     $util.qr($keyFields.add("$entry.key"))
   #end
 #else
-  #set( $keyFields = ["id", "_version", "_deleted", "_lastChangedAt"] )
+  #set( $keyFields = ["id"] )
 #end
 #foreach( $entry in $util.map.copyAndRemoveAllKeys($context.args.input, $keyFields).entrySet() )
   #if( !$util.isNull($dynamodbNameOverrideMap) && $dynamodbNameOverrideMap.containsKey("$entry.key") )
@@ -134,6 +134,5 @@ $util.qr($update.put("expression", "$expression"))
   }
 } #end,
   "update": $util.toJson($update),
-  "condition": $util.toJson($condition),
-  "_version": $util.defaultIfNull($ctx.args.input["_version"], "0")
+  "condition": $util.toJson($condition)
 }

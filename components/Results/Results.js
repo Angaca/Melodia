@@ -33,8 +33,8 @@ const Results = ({ navigation }) => {
         )}
         <View style={style.results}>
           <FinalScore />
-          <Leaderboard />
         </View>
+        <Leaderboard />
         <View style={style.btns}>
           <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>
             <HomeBtn navigation={navigation} />
