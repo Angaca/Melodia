@@ -9,9 +9,17 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import NextBtn from "./NextBtn";
 
 export default function MediaPlayer(props) {
-  const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
+  const {
+    songDuration = 10000,
+    isPlaying,
+    setIsPlaying,
+    song,
+    round,
+    clicked,
+  } = props;
   const { countdown, setCountdown } = useContext(ScoreContext);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [sound] = useState(new Audio.Sound());
@@ -88,17 +96,21 @@ export default function MediaPlayer(props) {
     }
   }
   if (countdown) return <Text style={style.rankTitle}>{countdown}</Text>;
-  return (
-    <View style={style.container}>
-      {showPlayButton && (
-        <QuestionAnimation
-          style={style.questionSVG}
-          onPress={playSong}
-          loop={false}
-        />
-      )}
-    </View>
-  );
+  else if (!clicked) {
+    return (
+      <View style={style.container}>
+        {showPlayButton && (
+          <QuestionAnimation
+            style={style.questionSVG}
+            onPress={playSong}
+            loop={false}
+          />
+        )}
+      </View>
+    );
+  } else {
+    return <NextBtn />;
+  }
 }
 
 const style = StyleSheet.create({

@@ -7,34 +7,34 @@ import {
 import LottieView from "lottie-react-native";
 
 export default class NextBtn extends React.Component {
- componentDidMount();
-  {
+  componentDidMount() {
     this.nextBtn.play();
   }
 
-const Btn = ({ setRound, setClicked }) => {
-  const nextRound = () => {
-    setRound((currentValue) => {
-      if (currentValue >= 10) return currentValue;
-      return currentValue + 1;
-    });
-  };
+  // Btn = ({ setRound, setClicked }) => {
+  //   const nextRound = () => {
+  //     setRound((currentValue) => {
+  //       if (currentValue >= 10) return currentValue;
+  //       return currentValue + 1;
+  //     });
+  //   };
 
-  return (
-    <LottieView
-      style={style.nextBtn}
-      ref={(animation) => {
-        this.nextBtn = animation;
-      }}
-      onPress={() => {
-        nextRound();
-        setClicked(false);
-      }}
-      source={require("../../style/animations/lottiePlay.json")}
-    />
-  );
-    }
-};
+  render() {
+    return (
+      <LottieView
+        style={style.nextBtn}
+        ref={(animation) => {
+          this.nextBtn = animation;
+        }}
+        onPress={() => {
+          nextRound();
+          setClicked(false);
+        }}
+        source={require("../../style/animations/lottiePlay.json")}
+      />
+    );
+  }
+}
 
 const style = StyleSheet.create({
   nextBtn: {
@@ -42,5 +42,3 @@ const style = StyleSheet.create({
     width: wp("15%"),
   },
 });
-
-export default NextBtn;

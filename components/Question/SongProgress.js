@@ -6,7 +6,7 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { useState } from "react";
 
 const SongProgress = (props) => {
-  const { round, songs } = props;
+  const { round, songs, clicked } = props;
   const [duration] = useState(5000);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -34,6 +34,7 @@ const SongProgress = (props) => {
         isPlaying={isPlaying}
         songDuration={duration}
         song={songs[round - 1]}
+        clicked={clicked}
       />
     </View>
   );

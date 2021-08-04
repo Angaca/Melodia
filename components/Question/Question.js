@@ -17,7 +17,7 @@ import { songs } from "../../utils/exampleQuestions";
 import SubmitBtn from "../Shared/SubmitBtn";
 
 import TitleStaff from "./../../style/imgs/altLogo.svg";
-import NextBtn from "./NextBtn";
+// import NextBtn from "./NextBtn";
 import NextButton from "./NextButton";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
@@ -39,7 +39,7 @@ const Question = ({ navigation }) => {
         )}
         <View style={style.top}>
           {/*  <RoundProgress round={round} /> */}
-          <SongProgress songs={songs} round={round} />
+          <SongProgress songs={songs} round={round} clicked={clicked} />
         </View>
         <View style={style.answers}>
           <Answers
@@ -51,28 +51,28 @@ const Question = ({ navigation }) => {
           />
         </View>
         <View style={style.submitBtn}>
-          {round < 10 ? (
-            clicked ? (
-              // <TouchableOpacity
-              //   onPress={() => {
-              //     setRound((currentValue) => {
-              //       if (currentValue >= 10) return currentValue;
-              //       return currentValue + 1;
-              //     });
-              //     setClicked(false);
-              //   }}
-              // >
-              //   <SubmitBtn />
-              // </TouchableOpacity>
+          {/* {round < 10 ? 
+            clicked ? 
+              <TouchableOpacity
+                onPress={() => {
+                  setRound((currentValue) => {
+                    if (currentValue >= 10) return currentValue;
+                    return currentValue + 1;
+                  });
+                  setClicked(false);
+                }}
+              >
+                <SubmitBtn />
+              </TouchableOpacity>
               <NextButton setClicked={setClicked} setRound={setRound} />
-            ) : null
-          ) : clicked ? (
+            
+           
             <ResultButton
               setClicked={setClicked}
               navigation={navigation}
               setRound={setRound}
             />
-          ) : null}
+           : null} */}
         </View>
       </ImageBackground>
     </View>
