@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import LottieView from "lottie-react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import LottieView from "lottie-react-native";
 
 export default class NextBtn extends React.Component {
   componentDidMount() {
@@ -35,10 +35,10 @@ export default class NextBtn extends React.Component {
     );
   }
 }
-
 const style = StyleSheet.create({
-  nextBtn: {
-    height: hp("15%"),
-    width: wp("15%"),
+  NextBtn: {
+    height: hp("31%"),
+    width: wp("31%"),
+    alignItems: "center",
   },
 });
