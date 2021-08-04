@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ImageBackground, StyleSheet } from "react-native";
+import { Platform, View, ImageBackground, StyleSheet } from "react-native";
 import AppStyle from "../../style/App.style";
 import FinalScore from "./FinalScore";
 import HomeButton from "./HomeButton";

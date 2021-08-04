@@ -14,7 +14,7 @@ Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
 
-function App() {
+export default function App() {
   const [score, setScore] = useState(0);
   const [countdown, setCountdown] = useState(3);
   const [username, setUsername] = useState();
@@ -54,4 +54,4 @@ function App() {
   );
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
