@@ -1,15 +1,22 @@
 import React from "react";
 import { Platform, View, ImageBackground, StyleSheet } from "react-native";
 import AppStyle from "../../style/App.style";
+import {
+  Text,
+  View,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import FinalScore from "./FinalScore";
-import HomeButton from "./HomeButton";
-import NewGameButton from "./NewGameButton";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Leaderboard from "./Leaderboard";
 import TitleStaff from "./../../style/imgs/altLogo.svg";
+import SubmitBtn from "../Shared/SubmitBtn";
+import HomeBtn from "./HomeBtn";
 
 const Results = ({ navigation }) => {
   return (
@@ -31,8 +38,12 @@ const Results = ({ navigation }) => {
           <Leaderboard />
         </View>
         <View style={style.btns}>
-          <NewGameButton navigation={navigation} />
-          <HomeButton navigation={navigation} />
+          <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>
+            <HomeBtn navigation={navigation} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Question")}>
+            <SubmitBtn navigation={navigation} />
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -49,8 +60,17 @@ const style = StyleSheet.create({
     height: hp("20%"),
   },
   results: {
-    height: hp("50%"),
-    alignItems: "stretch",
+    height: hp("45%"),
+    width: wp("80%"),
+    marginLeft: wp("10%"),
+    marginRight: wp("10%"),
+    marginTop: wp("15%"),
+    alignItems: "center",
+    borderRadius: 20,
+    backgroundColor: "#256EFF",
+    elevation: 3,
+    flex: 1,
+    flexDirection: "row",
   },
   btns: {
     flex: 1,

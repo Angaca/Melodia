@@ -5,6 +5,10 @@ import { ScoreContext } from "../../context/ScoreContext";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import QuestionAnimation from "./QuestionAnimation";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 export default function MediaPlayer(props) {
   const { songDuration = 10000, isPlaying, setIsPlaying, song, round } = props;
@@ -103,8 +107,10 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   rankTitle: {
-    fontSize: heightPercentageToDP("6%"),
-    color: "#E0B318",
+    fontSize: heightPercentageToDP("20%"),
+    color: "#256EFF",
+    alignItems: "center",
     fontWeight: "800",
+    marginTop: hp("-1.5%"),
   },
 });

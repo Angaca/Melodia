@@ -43,9 +43,13 @@ const Homepage = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
+        {/*  <Button
+          onPress={() => navigation.navigate("Results")}
+          title="results"
+        /> */}
         <View style={style.content}>
           {showUsername ? (
-            <Username navigation={navigation} />
+            <Username navigation={navigation} style={style.username} />
           ) : (
             <TouchableOpacity onPress={() => setShowUsername(true)}>
               {/* <PlayBtn /> */}
@@ -57,10 +61,6 @@ const Homepage = ({ navigation }) => {
             onPress={() => navigation.navigate("Results")}
           />
         </View>
-        {/*  <Button
-          onPress={() => navigation.navigate("Results")}
-          title="results"
-        /> */}
       </ImageBackground>
     </View>
   );
@@ -80,7 +80,7 @@ const style = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "50%",
+    marginTop: hp("-34%"),
     height: hp("100%"),
     width: wp("100%"),
   },
