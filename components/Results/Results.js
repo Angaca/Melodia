@@ -14,6 +14,7 @@ import {
 import TitleStaff from "./../../style/imgs/altLogo.svg";
 import SubmitBtn from "../Shared/SubmitBtn";
 import HomeBtn from "./HomeBtn";
+import Leaderboard from "./Leaderboard";
 
 const Results = ({ navigation }) => {
   return (
@@ -32,6 +33,7 @@ const Results = ({ navigation }) => {
         )}
         <View style={style.results}>
           <FinalScore />
+          <Leaderboard />
         </View>
         <View style={style.btns}>
           <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>

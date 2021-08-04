@@ -114,14 +114,14 @@
             "ApiId"
           ]
         },
-        "Description": "users",
+        "Description": "melodia",
         "Expires": {
           "Fn::If": [
             "APIKeyExpirationEpochIsPositive",
             {
               "Ref": "APIKeyExpirationEpoch"
             },
-            1628677078
+            1628701664
           ]
         }
       },

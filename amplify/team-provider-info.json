@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-melodia-dev-174144-authRole",
+      "UnauthRoleArn": "arn:aws:iam::965752990804:role/amplify-melodia-dev-174144-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::965752990804:role/amplify-melodia-dev-174144-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-melodia-dev-174144-deployment",
+      "UnauthRoleName": "amplify-melodia-dev-174144-unauthRole",
+      "StackName": "amplify-melodia-dev-174144",
+      "StackId": "arn:aws:cloudformation:eu-west-2:965752990804:stack/amplify-melodia-dev-174144/dc689460-f542-11eb-982a-0a4b98c23d1a",
+      "AmplifyAppId": "d26c9t1gb6li1z"
+    }
+  }
+}
