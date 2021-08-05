@@ -48,10 +48,12 @@ const Homepage = ({ navigation }) => {
           title="results"
         />
         <View style={style.content}>
-          <TouchableOpacity onPress={submit}>
-            <PlayGameBtn />
-          </TouchableOpacity>
-          <Username setInput={setInput} style={style.username} />
+          <View style={style.inputContainer}>
+            <Username setInput={setInput} style={style.username} />
+            <TouchableOpacity onPress={submit}>
+              <PlayGameBtn />
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     </View>
@@ -75,6 +77,12 @@ const style = StyleSheet.create({
     marginTop: hp("-34%"),
     height: hp("100%"),
     width: wp("100%"),
+  },
+  inputContainer: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    height: hp("10%"),
   },
 });
 
