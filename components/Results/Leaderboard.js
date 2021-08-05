@@ -36,6 +36,8 @@ export default function Leaderboard() {
           <FinalScore />
           <Button
             color="#FFC107"
+            fontWeight="bold"
+            borderRadius="10%"
             onPress={() => getData()}
             title="Leaderboard"
           />
@@ -60,10 +62,10 @@ export default function Leaderboard() {
 
 const style = StyleSheet.create({
   leaderboard: {
-    padding: 20,
     flexDirection: "column",
-    width: wp("50%"),
     color: "white",
+    paddingBottom: hp("1.5%"),
+    paddingTop: hp("1.5%"),
   },
 
   leadTitle: {
@@ -72,11 +74,11 @@ const style = StyleSheet.create({
     color: "white",
     textAlign: "center",
     textDecorationLine: "underline",
-    marginBottom: hp("3%"),
+    marginBottom: hp("1.5%"),
   },
   info: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: wp("50%"),
+    width: wp("70%"),
   },
 });

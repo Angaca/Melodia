@@ -35,7 +35,6 @@ const answerPageStyle = StyleSheet.create({
     alignItems: "center",
     padding: 15,
     backgroundColor: "#256EFF",
-    /*     alt colour #414FF3 */
     borderRadius: 10,
     elevation: 3,
   },
