@@ -25,7 +25,7 @@ const answerPageStyle = StyleSheet.create({
     color: "black",
     fontWeight: "700",
     textDecorationLine: "line-through",
-    backgroundColor: "#ff0000",
+    backgroundColor: "#B73239",
     fontSize: 16,
     alignItems: "center",
     padding: 15,
