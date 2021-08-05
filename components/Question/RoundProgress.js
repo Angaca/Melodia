@@ -8,9 +8,9 @@ const RoundProgress = ({ round }) => {
 
 const style = StyleSheet.create({
   round: {
-    color: "red",
-    backgroundColor: "green",
+    color: "black",
     fontSize: 16,
+    textAlign: "center",
   },
 });
 

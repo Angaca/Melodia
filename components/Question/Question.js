@@ -21,18 +21,17 @@ const Question = ({ navigation }) => {
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={{ width: "100%", height: "100%" }}
       >
-        <RoundProgress
-          style={{ fontSize: 30, marginTop: hp("15%") }}
-          round={round}
-        />
-
         {Platform.OS !== "web" && (
           <TitleStaff
-            width={wp("100%")}
-            height={hp("40%")}
-            marginBottom={hp("-9%")}
+          width={wp("100%")}
+          height={hp("40%")}
+          marginBottom={hp("-9%")}
           />
-        )}
+          )}
+          <RoundProgress
+            style={{ fontSize: 30, marginTop: hp("15%") }}
+            round={round}
+          />
         <View style={style.top}>
           <SongProgress
             isPlaying={isPlaying}
