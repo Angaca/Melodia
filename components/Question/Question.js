@@ -13,6 +13,7 @@ import TitleStaff from "./../../style/imgs/GreyLogo.svg";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <View style={style.container}>
@@ -34,6 +35,8 @@ const Question = ({ navigation }) => {
         )}
         <View style={style.top}>
           <SongProgress
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
             songs={songs}
             round={round}
             clicked={clicked}
@@ -46,6 +49,7 @@ const Question = ({ navigation }) => {
             <Answers
               clicked={clicked}
               setClicked={setClicked}
+              setIsPlaying={setIsPlaying}
               songs={songs}
               round={round}
               style={style.answers}

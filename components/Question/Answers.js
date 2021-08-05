@@ -6,7 +6,7 @@ import answerPage from "./answerPageStyle/answerPage.js";
 import { FadeInView } from "../Shared/Animations";
 
 const Answers = (props) => {
-  const { songs, round, clicked, setClicked } = props;
+  const { songs, round, clicked, setClicked, setIsPlaying } = props;
   const { setScore, countdown } = useContext(ScoreContext);
   const [answers, setAnswers] = useState([]);
 
@@ -25,6 +25,7 @@ const Answers = (props) => {
       setScore((currentScore) => currentScore + 10);
     }
     setClicked(true);
+    setIsPlaying(false);
   };
 
   if (!round || !songs.length || countdown) return null;
