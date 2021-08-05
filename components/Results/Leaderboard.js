@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import awsconfig from "../../src/aws-exports";
@@ -8,8 +8,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import FinalScore from "./FinalScore";
+import { ScoreContext } from "../../context/ScoreContext";
 
 export default function Leaderboard() {
+  const { username, score } = useContext(ScoreContext);
   Amplify.configure(awsconfig);
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
@@ -46,14 +48,21 @@ export default function Leaderboard() {
         <View style={style.leaderboard}>
           <Text style={style.leadTitle}>Leaderboard</Text>
 
-          {users.sort(sortByScore).map((user, index) => (
-            <View style={style.info} key={`${user.username}${index}`}>
-              <Text style={{ fontSize: 16, color: "white" }}>
-                {user.username}
-              </Text>
-              <Text style={{ fontSize: 16, color: "white" }}>{user.score}</Text>
-            </View>
-          ))}
+          {users.sort(sortByScore).map((user, index) => {
+            const localScore =
+              user.username === username ? score + user.score : user.score;
+
+            return (
+              <View style={style.info} key={`${user.username}${index}`}>
+                <Text style={{ fontSize: 16, color: "white" }}>
+                  {user.username}
+                </Text>
+                <Text style={{ fontSize: 16, color: "white" }}>
+                  {localScore}
+                </Text>
+              </View>
+            );
+          })}
         </View>
       )}
     </View>
