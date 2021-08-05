@@ -17,7 +17,7 @@ const FinalScore = () => {
   ];
   const messageIndex = Math.floor(score / 30);
   return (
-    <View style={AppStyle.container}>
+    <View style={style.message}>
       <Text style={style.rankTitle}>
         {resultMessages[messageIndex]}, {username}
       </Text>
