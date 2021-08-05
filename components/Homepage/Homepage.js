@@ -25,8 +25,8 @@ const Homepage = ({ navigation }) => {
   const submit = () => {
     if (input) {
       setUsername(input);
-      navigation.navigate("Question");
     }
+    navigation.navigate("Question");
   };
 
   return (
