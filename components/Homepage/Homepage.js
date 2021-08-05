@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import PlayGameBtn from "../Shared/PlayGameBtn";
 import { ScoreContext } from "../../context/ScoreContext";
-
+import MusicNotes from "../Shared/MusicNotes";
 const Homepage = ({ navigation }) => {
   const { setUsername } = useContext(ScoreContext);
   const [input, setInput] = useState();
@@ -43,10 +43,7 @@ const Homepage = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
-        <Button
-          onPress={() => navigation.navigate("Results")}
-          title="results"
-        />
+
         <View style={style.content}>
           <View style={style.inputContainer}>
             <Username setInput={setInput} style={style.username} />
@@ -55,6 +52,7 @@ const Homepage = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+        <MusicNotes />
       </ImageBackground>
     </View>
   );
@@ -74,8 +72,8 @@ const style = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: hp("-34%"),
-    height: hp("100%"),
+    marginTop: hp("14%"),
+    height: hp("15%"),
     width: wp("100%"),
   },
   inputContainer: {
