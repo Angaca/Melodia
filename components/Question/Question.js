@@ -43,6 +43,14 @@ const Question = ({ navigation }) => {
             setRound={setRound}
             setClicked={setClicked}
           />
+          {round === 10 && clicked ? (
+            // <NextButton setClicked={setClicked} setRound={setRound} />
+            <ResultButton
+              setClicked={setClicked}
+              navigation={navigation}
+              setRound={setRound}
+            />
+          ) : null}
         </View>
         <View style={style.submitBtn}>
           <View style={style.answers}>
@@ -55,14 +63,6 @@ const Question = ({ navigation }) => {
               style={style.answers}
             />
           </View>
-          {round === 10 && clicked ? (
-            // <NextButton setClicked={setClicked} setRound={setRound} />
-            <ResultButton
-              setClicked={setClicked}
-              navigation={navigation}
-              setRound={setRound}
-            />
-          ) : null}
         </View>
       </ImageBackground>
     </View>
