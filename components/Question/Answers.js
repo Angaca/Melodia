@@ -39,7 +39,7 @@ const Answers = (props) => {
               style={
                 clicked && answer !== songs[round - 1].name
                   ? answerPage.incorrectBtn
-                  : answerPage.button
+                  : (clicked ? answerPage.correctBtn : answerPage.button)
               }
               onPress={() => handleAnswer(answer)}
             >
