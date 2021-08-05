@@ -23,21 +23,27 @@ const Question = ({ navigation }) => {
       >
         {Platform.OS !== "web" && (
           <TitleStaff
-          width={wp("100%")}
-          height={hp("40%")}
-          marginBottom={hp("-9%")}
+            width={wp("100%")}
+            height={hp("40%")}
+            marginBottom={hp("-9%")}
           />
-          )}
-          <RoundProgress
-            style={{ fontSize: 30, marginTop: hp("15%") }}
-            round={round}
-          />
+        )}
+        <RoundProgress
+          style={{
+            fontSize: 30,
+            marginTop: hp("15%"),
+          }}
+          round={round}
+        />
         <View style={style.top}>
           <SongProgress
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
             songs={songs}
             round={round}
+            style={{
+              marginTop: hp("1.5%"),
+            }}
             clicked={clicked}
             setRound={setRound}
             setClicked={setClicked}
