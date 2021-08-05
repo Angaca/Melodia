@@ -34,6 +34,12 @@ export default function Leaderboard() {
     });
   }
 
+  function sortByScore(a, b) {
+    if (a.score > b.score) return -1;
+    if (a.score < b.score) return 1;
+    return 0;
+  }
+
   return (
     <View>
       {!show ? (
@@ -41,7 +47,7 @@ export default function Leaderboard() {
       ) : (
         <View style={style.leaderboard}>
           <Text style={style.leadTitle}>Leaderboard</Text>
-          {users.map((user, index) => (
+          {users.sort(sortByScore).map((user, index) => (
             <View key={`${user.username}${index}`}>
               <View style={style.info}>
                 <Text style={{ fontSize: 16 }}>{user.username}</Text>
