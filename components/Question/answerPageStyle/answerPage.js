@@ -21,6 +21,16 @@ const answerPageStyle = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
   },
+  incorrectBtnSelected: {
+    color: "black",
+    fontWeight: "700",
+    textDecorationLine: "line-through",
+    backgroundColor: "#ff0000",
+    fontSize: 16,
+    alignItems: "center",
+    padding: 15,
+    borderRadius: 10,
+  },
   button: {
     alignItems: "center",
     padding: 15,

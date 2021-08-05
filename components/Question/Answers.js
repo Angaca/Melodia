@@ -9,6 +9,7 @@ const Answers = (props) => {
   const { songs, round, clicked, setClicked, setIsPlaying } = props;
   const { setScore, countdown } = useContext(ScoreContext);
   const [answers, setAnswers] = useState([]);
+  const [currentButton, setCurrentButton] = useState();
 
   useEffect(() => {
     if (songs[round - 1]) {
@@ -18,6 +19,7 @@ const Answers = (props) => {
       ]);
       setAnswers(answers);
     }
+    setCurrentButton();
   }, [round]);
 
   const handleAnswer = (answer) => {
@@ -37,11 +39,18 @@ const Answers = (props) => {
             <TouchableOpacity
               disabled={clicked}
               style={
-                clicked && answer !== songs[round - 1].name
+                clicked && answer === songs[round - 1].name
+                  ? answerPage.correctBtn
+                  : currentButton === index && clicked
+                  ? answerPage.incorrectBtnSelected
+                  : clicked
                   ? answerPage.incorrectBtn
-                  : (clicked ? answerPage.correctBtn : answerPage.button)
+                  : answerPage.button
               }
-              onPress={() => handleAnswer(answer)}
+              onPress={async() => {
+                await setCurrentButton(index);
+                handleAnswer(answer);
+              }}
             >
               <Text style={answerPage.answerOption}> {answer} </Text>
             </TouchableOpacity>
