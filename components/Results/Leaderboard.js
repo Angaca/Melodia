@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import awsconfig from "../../src/aws-exports";
 import { listUsers } from "../../src/graphql/queries";
@@ -36,13 +36,9 @@ export default function Leaderboard() {
       {!show ? (
         <View>
           <FinalScore />
-          <Button
-            color="#FFC107"
-            fontWeight="bold"
-            borderRadius="10%"
-            onPress={() => getData()}
-            title="Leaderboard"
-          />
+          <TouchableOpacity style={style.button} onPress={() => getData()}>
+            <Text style={style.leadBtnTitle}>Leaderboard</Text>
+          </TouchableOpacity>
         </View>
       ) : (
         <View style={style.leaderboard}>
@@ -85,9 +81,24 @@ const style = StyleSheet.create({
     textDecorationLine: "underline",
     marginBottom: hp("1.5%"),
   },
+
+  leadBtnTitle: {
+    fontWeight: "700",
+    color: "white",
+    fontSize: 16,
+  },
   info: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: wp("70%"),
+  },
+
+  button: {
+    alignItems: "center",
+    padding: 12,
+    color: "white",
+    backgroundColor: "#FFC107",
+    borderRadius: 10,
+    elevation: 3,
   },
 });
