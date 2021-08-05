@@ -59,7 +59,6 @@ const style = StyleSheet.create({
   results: {
     flex: 1,
     flexDirection: "row",
-    height: hp("80%"),
     width: wp("85%"),
     alignItems: "center",
     marginLeft: wp("7.5%"),
@@ -73,7 +72,7 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     fontSize: hp("6%"),
-    height: hp("25%"),
+    height: hp("16%"),
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "transparent",
