@@ -133,7 +133,7 @@ const style = StyleSheet.create({
     fontSize: heightPercentageToDP("20%"),
     color: "#256EFF",
     alignItems: "center",
-    fontWeight: "800",
+    fontWeight: "bold",
     marginTop: hp("-1.5%"),
   },
 });
