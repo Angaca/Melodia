@@ -37,6 +37,9 @@ const style = StyleSheet.create({
     color: "white",
     fontWeight: "700",
   },
+  message: {
+    marginBottom: hp("2.5%"),
+  },
 });
 
 export default FinalScore;
