@@ -28,7 +28,6 @@ const style = StyleSheet.create({
   HomeBtn: {
     height: hp("10%"),
     width: wp("10%"),
-
-    marginBottom: hp("2%"),
+    marginBottom: hp("2.2%"),
   },
 });
