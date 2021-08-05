@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 export default function App() {
   const [score, setScore] = useState(0);
   const [countdown, setCountdown] = useState(3);
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState("Uomo Gatto");
 
   return (
     <ScoreContext.Provider
