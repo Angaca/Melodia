@@ -7,24 +7,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-/* 
-const users = [
-  { username: "username", score: 100 },
-  { username: "username", score: 100 },
-  { username: "username", score: 100 },
-  { username: "username", score: 100 },
-  { username: "username", score: 100 },
-]; */
+import FinalScore from "./FinalScore";
 
 export default function Leaderboard() {
   Amplify.configure(awsconfig);
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
 
-  /* function getData() {
-    setShow(true);
-  }
- */
   async function getData() {
     API.graphql(graphqlOperation(listUsers)).then((evt) => {
       const results = evt.data.listUsers.items;
@@ -43,7 +32,14 @@ export default function Leaderboard() {
   return (
     <View>
       {!show ? (
-        <Button onPress={() => getData()} title="See Leaderboard" />
+        <View>
+          <FinalScore />
+          <Button
+            color="#FFC107"
+            onPress={() => getData()}
+            title="Leaderboard"
+          />
+        </View>
       ) : (
         <View style={style.leaderboard}>
           <Text style={style.leadTitle}>Leaderboard</Text>
@@ -74,6 +70,7 @@ const style = StyleSheet.create({
     fontSize: 22,
     fontWeight: "700",
     color: "white",
+    textAlign: "center",
     textDecorationLine: "underline",
     marginBottom: hp("3%"),
   },
