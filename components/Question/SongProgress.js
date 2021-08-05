@@ -6,7 +6,15 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { useState } from "react";
 
 const SongProgress = (props) => {
-  const { round, songs, clicked, setClicked, setRound, isPlaying,setIsPlaying } = props;
+  const {
+    round,
+    songs,
+    clicked,
+    setClicked,
+    setRound,
+    isPlaying,
+    setIsPlaying,
+  } = props;
   const [duration] = useState(5000);
 
   return (
@@ -16,15 +24,15 @@ const SongProgress = (props) => {
           size={110}
           width={15}
           fill={100}
-          tintColor="#256EFF"
+          tintColor="#FFC107"
           backgroundColor="#3d5875"
           duration={duration}
         >
-          {(fill) => {
+          {/* {(fill) => {
             return (
               <Text>{((duration / 1000) * (fill / 100)).toFixed(1)}s</Text>
             );
-          }}
+          }} */}
         </AnimatedCircularProgress>
       )}
       <MediaPlayer
