@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import FinalScore from "./FinalScore";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -31,7 +30,7 @@ const Results = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
-        {/* <FinalScore /> */}
+
         <View style={style.results}>
           <Leaderboard />
         </View>
@@ -63,6 +62,8 @@ const style = StyleSheet.create({
     height: hp("80%"),
     width: wp("85%"),
     alignItems: "center",
+    marginLeft: wp("7.5%"),
+    marginTop: hp("7.5%"),
     justifyContent: "space-around",
     borderRadius: 20,
     backgroundColor: "#256EFF",
