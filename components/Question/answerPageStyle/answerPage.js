@@ -45,7 +45,7 @@ const answerPageStyle = StyleSheet.create({
     justifyContent: "space-around",
     backgroundColor: "transparent",
     width: wp("90%"),
-    marginBottom: hp("3%"),
+    marginBottom: hp("1%"),
     marginTop: hp("-2%"),
   },
 

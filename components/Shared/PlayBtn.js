@@ -27,7 +27,6 @@ const style = StyleSheet.create({
   playBtn: {
     height: hp("17%"),
     width: wp("17%"),
-    marginBottom: hp("1%"),
     alignItems: "center",
   },
 });

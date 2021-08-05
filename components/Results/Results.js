@@ -31,10 +31,10 @@ const Results = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
-        {/*  <View style={style.results}>
-          <FinalScore />
-        </View> */}
-        <Leaderboard />
+        {/* <FinalScore /> */}
+        <View style={style.results}>
+          <Leaderboard />
+        </View>
         <View style={style.btns}>
           <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>
             <HomeBtn navigation={navigation} />
@@ -58,28 +58,25 @@ const style = StyleSheet.create({
     height: hp("20%"),
   },
   results: {
-    height: hp("45%"),
-    width: wp("80%"),
-    marginLeft: wp("10%"),
-    marginRight: wp("10%"),
-    marginTop: wp("15%"),
+    flex: 1,
+    flexDirection: "row",
+    height: hp("80%"),
+    width: wp("85%"),
     alignItems: "center",
+    justifyContent: "space-around",
     borderRadius: 20,
     backgroundColor: "#256EFF",
     elevation: 3,
-    flex: 1,
-    flexDirection: "row",
   },
   btns: {
     flex: 1,
     flexDirection: "row",
     fontSize: hp("6%"),
-    height: hp("30%"),
+    height: hp("25%"),
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "transparent",
     width: wp("100%"),
-    marginBottom: hp("1%"),
   },
 });
 
