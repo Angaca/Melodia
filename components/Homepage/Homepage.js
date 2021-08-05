@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -15,11 +15,20 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useState } from "react";
-import PlayBtn from "../Shared/PlayBtn";
 import PlayGameBtn from "../Shared/PlayGameBtn";
+import { ScoreContext } from "../../context/ScoreContext";
 
 const Homepage = ({ navigation }) => {
-  const [showUsername, setShowUsername] = useState(false);
+  const { setUsername } = useContext(ScoreContext);
+  const [input, setInput] = useState();
+
+  const submit = () => {
+    if (input) {
+      setUsername(input);
+      navigation.navigate("Question");
+    }
+  };
+
   return (
     <View>
       <ImageBackground
@@ -39,13 +48,10 @@ const Homepage = ({ navigation }) => {
           title="results"
         />
         <View style={style.content}>
-          {showUsername ? (
-            <Username navigation={navigation} style={style.username} />
-          ) : (
-            <TouchableOpacity onPress={() => setShowUsername(true)}>
-              <PlayGameBtn />
-            </TouchableOpacity>
-          )}
+          <TouchableOpacity onPress={submit}>
+            <PlayGameBtn />
+          </TouchableOpacity>
+          <Username setInput={setInput} style={style.username} />
         </View>
       </ImageBackground>
     </View>

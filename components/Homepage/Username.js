@@ -1,25 +1,12 @@
 import React from "react";
-import { useState, useContext } from "react";
 import { TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
-import { ScoreContext } from "../../context/ScoreContext";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import SubmitBtn from "../Shared/SubmitBtn";
 
 const Username = (props) => {
-  const { navigation } = props;
-  const { setUsername } = useContext(ScoreContext);
-  const [input, setInput] = useState();
-
-  const submit = () => {
-    if (input) {
-      setUsername(input);
-      navigation.navigate("Question");
-    }
-  };
+  const { setInput } = props;
 
   return (
     <View style={style.inputContainer}>
@@ -28,9 +15,6 @@ const Username = (props) => {
         placeholder="Username"
         onChangeText={(text) => setInput(text)}
       ></TextInput>
-      <TouchableOpacity onPress={submit} title="Submit">
-        <SubmitBtn style={style.submit} />
-      </TouchableOpacity>
     </View>
   );
 };
