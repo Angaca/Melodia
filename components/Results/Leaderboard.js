@@ -47,12 +47,13 @@ export default function Leaderboard() {
       ) : (
         <View style={style.leaderboard}>
           <Text style={style.leadTitle}>Leaderboard</Text>
+
           {users.sort(sortByScore).map((user, index) => (
-            <View key={`${user.username}${index}`}>
-              <View style={style.info}>
-                <Text style={{ fontSize: 16 }}>{user.username}</Text>
-                <Text style={{ fontSize: 16 }}>{user.score}</Text>
-              </View>
+            <View style={style.info} key={`${user.username}${index}`}>
+              <Text style={{ fontSize: 16, color: "white" }}>
+                {user.username}
+              </Text>
+              <Text style={{ fontSize: 16, color: "white" }}>{user.score}</Text>
             </View>
           ))}
         </View>
@@ -65,19 +66,20 @@ const style = StyleSheet.create({
   leaderboard: {
     padding: 20,
     flexDirection: "column",
-    alignItems: "center",
+    width: wp("50%"),
+    color: "white",
   },
 
   leadTitle: {
     fontSize: 22,
     fontWeight: "700",
+    color: "white",
+    textDecorationLine: "underline",
     marginBottom: hp("3%"),
   },
   info: {
     flexDirection: "row",
-
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    width: wp("90%"),
+    justifyContent: "space-between",
+    width: wp("50%"),
   },
 });
