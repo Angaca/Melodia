@@ -35,7 +35,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-melodia-dev-174144-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apimelodia"
       },
-      "lastPushTimeStamp": "2021-08-04T17:11:31.250Z",
+      "lastPushTimeStamp": "2021-08-05T10:45:06.728Z",
       "lastPushDirHash": "ZzJhJ5pSvjPUSlLhPkCUnFMKMFE="
     }
   }

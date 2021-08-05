@@ -78,6 +78,72 @@
         }
     },
     "Resources": {
+        "DataStore": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "TableName": {
+                    "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    "AmplifyDataStore",
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    },
+                                    {
+                                        "Ref": "env"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    "AmplifyDataStore",
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "ds_pk",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "ds_sk",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "ds_pk",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "ds_sk",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "BillingMode": "PAY_PER_REQUEST",
+                "TimeToLiveSpecification": {
+                    "AttributeName": "_ttl",
+                    "Enabled": true
+                }
+            }
+        },
         "GraphQLAPI": {
             "Type": "AWS::AppSync::GraphQLApi",
             "Properties": {
@@ -121,7 +187,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1628701664
+                        1628765106
                     ]
                 }
             },

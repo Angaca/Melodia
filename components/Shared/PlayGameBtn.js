@@ -6,27 +6,27 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-export default class QuestionAnimation extends React.Component {
+export default class PlayGameBtn extends React.Component {
   componentDidMount() {
-    this.QuestionAnimation.play();
+    this.playGameBtn.play();
   }
 
   render() {
     return (
       <LottieView
-        style={style.PlayBtn}
-        loop={false}
+        style={style.playGameBtn}
         ref={(animation) => {
-          this.QuestionAnimation = animation;
+          this.playGameBtn = animation;
         }}
-        source={require("../../style/animations/question.json")}
+        source={require("../../style/animations/lottiePlay.json")}
       />
     );
   }
 }
 const style = StyleSheet.create({
-  PlayBtn: {
-    height: hp("15%"),
-    width: wp("15%"),
+  playGameBtn: {
+    height: hp("30%"),
+    width: wp("30%"),
+    alignItems: "center",
   },
 });

@@ -8,15 +8,15 @@ import {
 
 export default class SubmitBtn extends React.Component {
   componentDidMount() {
-    this.SubmitBtn.play();
+    this.playBtn.play();
   }
 
   render() {
     return (
       <LottieView
-        style={style.SubmitBtn}
+        style={style.playBtn}
         ref={(animation) => {
-          this.SubmitBtn = animation;
+          this.playBtn = animation;
         }}
         source={require("../../style/animations/lottiePlay.json")}
       />
@@ -24,9 +24,9 @@ export default class SubmitBtn extends React.Component {
   }
 }
 const style = StyleSheet.create({
-  SubmitBtn: {
+  playBtn: {
     height: hp("14%"),
     width: wp("14%"),
-    marginBottom: hp("1%"),
+    alignItems: "center",
   },
 });

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, ImageBackground } from "react-native";
 import Answers from "./Answers";
 import RoundProgress from "./RoundProgress";
 import SongProgress from "./SongProgress";
@@ -14,12 +9,7 @@ import {
 } from "react-native-responsive-screen";
 import ResultButton from "./ResultButton";
 import { songs } from "../../utils/exampleQuestions";
-import SubmitBtn from "../Shared/SubmitBtn";
-
-import TitleStaff from "./../../style/imgs/altLogo.svg";
-// import NextBtn from "./NextBtn";
-import NextButton from "./NextButton";
-import NextBtn from "./NextBtn";
+import TitleStaff from "./../../style/imgs/GreyLogo.svg";
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -30,16 +20,19 @@ const Question = ({ navigation }) => {
         source={require("./../../style/imgs/WinterSunburst.png")}
         style={{ width: "100%", height: "100%" }}
       >
+        <RoundProgress
+          style={{ fontSize: 30, marginTop: hp("15%") }}
+          round={round}
+        />
+
         {Platform.OS !== "web" && (
           <TitleStaff
             width={wp("100%")}
             height={hp("40%")}
-            marginTop={hp("1%")}
             marginBottom={hp("-9%")}
           />
         )}
         <View style={style.top}>
-          {/*  <RoundProgress round={round} /> */}
           <SongProgress
             songs={songs}
             round={round}

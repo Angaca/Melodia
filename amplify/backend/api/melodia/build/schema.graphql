@@ -2,6 +2,9 @@ type Users {
   id: ID!
   username: String!
   score: Int!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -14,6 +17,7 @@ enum ModelSortDirection {
 type ModelUsersConnection {
   items: [Users]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -111,6 +115,7 @@ enum ModelAttributeTypes {
 }
 
 type Query {
+  syncUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUsersConnection
   getUsers(id: ID!): Users
   listUsers(filter: ModelUsersFilterInput, limit: Int, nextToken: String): ModelUsersConnection
 }
@@ -119,15 +124,18 @@ input CreateUsersInput {
   id: ID
   username: String!
   score: Int!
+  _version: Int
 }
 
 input UpdateUsersInput {
   username: String
   score: Int
+  _version: Int
 }
 
 input DeleteUsersInput {
   id: ID!
+  _version: Int
 }
 
 type Mutation {

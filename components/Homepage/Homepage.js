@@ -8,7 +8,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import TitleStaff from "./../../style/imgs/altLogo.svg";
+import TitleStaff from "./../../style/imgs/GreyLogo.svg";
 import Username from "./Username";
 import {
   widthPercentageToDP as wp,
@@ -16,6 +16,7 @@ import {
 } from "react-native-responsive-screen";
 import { useState } from "react";
 import PlayBtn from "../Shared/PlayBtn";
+import PlayGameBtn from "../Shared/PlayGameBtn";
 
 const Homepage = ({ navigation }) => {
   const [showUsername, setShowUsername] = useState(false);
@@ -42,7 +43,7 @@ const Homepage = ({ navigation }) => {
             <Username navigation={navigation} style={style.username} />
           ) : (
             <TouchableOpacity onPress={() => setShowUsername(true)}>
-              <PlayBtn />
+              <PlayGameBtn />
             </TouchableOpacity>
           )}
         </View>

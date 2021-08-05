@@ -11,8 +11,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import TitleStaff from "./../../style/imgs/altLogo.svg";
-import SubmitBtn from "../Shared/SubmitBtn";
+import TitleStaff from "./../../style/imgs/GreyLogo.svg";
+import PlayBtn from "../Shared/PlayBtn";
 import HomeBtn from "./HomeBtn";
 import Leaderboard from "./Leaderboard";
 
@@ -31,16 +31,16 @@ const Results = ({ navigation }) => {
             marginBottom={hp("-6%")}
           />
         )}
-        <View style={style.results}>
+        {/*  <View style={style.results}>
           <FinalScore />
-        </View>
+        </View> */}
         <Leaderboard />
         <View style={style.btns}>
           <TouchableOpacity onPress={() => navigation.navigate("Homepage")}>
             <HomeBtn navigation={navigation} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("Question")}>
-            <SubmitBtn navigation={navigation} />
+            <PlayBtn navigation={navigation} />
           </TouchableOpacity>
         </View>
       </ImageBackground>

@@ -117,7 +117,7 @@ export default function MediaPlayer(props) {
             setClicked(false);
           }}
         >
-          <PlayBtn width={100} height={100}/>
+          <PlayBtn />
         </TouchableOpacity>
       )}
     </View>
