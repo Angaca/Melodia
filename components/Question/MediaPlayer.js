@@ -116,6 +116,7 @@ export default function MediaPlayer(props) {
             });
             setClicked(false);
             setCountdown(3);
+            setIsPlaying(false);
           }}
         >
           <PlayBtn />

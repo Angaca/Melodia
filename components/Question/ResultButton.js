@@ -12,7 +12,7 @@ const ResultButton = ({ setClicked, setRound, navigation }) => {
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Results");
-          setRound(0);
+          setRound(1);
           setClicked(false);
         }}
         title="Results"
