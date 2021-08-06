@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
+import { TextInput, View, StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

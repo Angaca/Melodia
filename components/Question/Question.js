@@ -10,6 +10,7 @@ import {
 import ResultButton from "./ResultButton";
 import { songs } from "../../utils/exampleQuestions";
 import TitleStaff from "./../../style/imgs/GreyLogo.svg";
+
 const Question = ({ navigation }) => {
   const [round, setRound] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -49,7 +50,6 @@ const Question = ({ navigation }) => {
             setClicked={setClicked}
           />
           {round === 10 && clicked ? (
-            // <NextButton setClicked={setClicked} setRound={setRound} />
             <ResultButton
               setClicked={setClicked}
               navigation={navigation}
@@ -83,7 +83,6 @@ const style = StyleSheet.create({
     alignItems: "center",
     height: hp("100%"),
   },
-
   appLogo: {
     marginBottom: hp("-4%"),
   },
@@ -91,7 +90,6 @@ const style = StyleSheet.create({
     height: hp("43%"),
     marginBottom: hp("-4%"),
   },
-
   top: {
     height: hp("20%"),
   },

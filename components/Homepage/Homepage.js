@@ -5,7 +5,6 @@ import {
   View,
   Platform,
   TouchableOpacity,
-  Button,
   Dimensions,
 } from "react-native";
 import TitleStaff from "./../../style/imgs/GreyLogo.svg";
@@ -18,6 +17,7 @@ import { useState } from "react";
 import PlayGameBtn from "../Shared/PlayGameBtn";
 import { ScoreContext } from "../../context/ScoreContext";
 import MusicNotes from "../Shared/MusicNotes";
+
 const Homepage = ({ navigation }) => {
   const { setUsername } = useContext(ScoreContext);
   const [input, setInput] = useState();

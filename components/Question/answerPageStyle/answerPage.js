@@ -47,13 +47,11 @@ const answerPageStyle = StyleSheet.create({
     marginBottom: hp("1%"),
     marginTop: hp("-2%"),
   },
-
   answerOption: {
     color: "white",
     fontWeight: "700",
     fontSize: 16,
   },
-
   incorrectBtn: {
     color: "white",
     fontWeight: "700",

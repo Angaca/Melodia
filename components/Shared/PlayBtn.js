@@ -23,6 +23,7 @@ export default class PlayBtn extends React.Component {
     );
   }
 }
+
 const style = StyleSheet.create({
   playBtn: {
     height: hp("17%"),

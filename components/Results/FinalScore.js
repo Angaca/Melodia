@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
-import AppStyle from "../../style/App.style";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -15,6 +14,7 @@ const FinalScore = () => {
     "Encore",
     "Bravo Maestro",
   ];
+
   const messageIndex = Math.floor(score / 30);
   return (
     <View style={style.message}>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import awsconfig from "../../src/aws-exports";
@@ -12,16 +12,15 @@ import { ScoreContext } from "../../context/ScoreContext";
 
 export default function Leaderboard() {
   const { username, score } = useContext(ScoreContext);
-  Amplify.configure(awsconfig);
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
+  Amplify.configure(awsconfig);
 
   async function getData() {
     API.graphql(graphqlOperation(listUsers)).then((evt) => {
       const results = evt.data.listUsers.items;
       setUsers(results);
       setShow(true);
-      console.log(users);
     });
   }
 
@@ -72,7 +71,6 @@ const style = StyleSheet.create({
     paddingBottom: hp("1.5%"),
     paddingTop: hp("1.5%"),
   },
-
   leadTitle: {
     fontSize: 22,
     fontWeight: "700",
@@ -81,7 +79,6 @@ const style = StyleSheet.create({
     textDecorationLine: "underline",
     marginBottom: hp("1.5%"),
   },
-
   leadBtnTitle: {
     fontWeight: "700",
     color: "white",
@@ -92,7 +89,6 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     width: wp("70%"),
   },
-
   button: {
     alignItems: "center",
     padding: 12,

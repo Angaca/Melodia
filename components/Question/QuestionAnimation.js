@@ -24,6 +24,7 @@ export default class QuestionAnimation extends React.Component {
     );
   }
 }
+
 const style = StyleSheet.create({
   PlayBtn: {
     height: hp("15%"),

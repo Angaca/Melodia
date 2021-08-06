@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { View, Button, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { ScoreContext } from "../../context/ScoreContext";
 import { Audio } from "expo-av";
 import { heightPercentageToDP } from "react-native-responsive-screen";
@@ -84,7 +84,7 @@ export default function MediaPlayer(props) {
       try {
         await loadSong();
         await sound.playAsync();
-        // Your sound is playing!
+        // Sound is playing!
 
         // Don't forget to unload the sound from memory
         // when you are done using the Sound object

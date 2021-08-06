@@ -25,6 +25,7 @@ export default class MusicNotes extends React.Component {
     );
   }
 }
+
 const style = StyleSheet.create({
   musicNotes: {
     width: wp("50%"),

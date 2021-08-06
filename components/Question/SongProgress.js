@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import AppStyle from "../../style/App.style";
 import MediaPlayer from "./MediaPlayer";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
@@ -27,13 +27,7 @@ const SongProgress = (props) => {
           tintColor="#FFC107"
           backgroundColor="#3d5875"
           duration={duration}
-        >
-          {/* {(fill) => {
-            return (
-              <Text>{((duration / 1000) * (fill / 100)).toFixed(1)}s</Text>
-            );
-          }} */}
-        </AnimatedCircularProgress>
+        ></AnimatedCircularProgress>
       )}
       <MediaPlayer
         round={round}

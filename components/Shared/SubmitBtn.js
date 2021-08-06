@@ -23,6 +23,7 @@ export default class SubmitBtn extends React.Component {
     );
   }
 }
+
 const style = StyleSheet.create({
   playBtn: {
     height: hp("14%"),
